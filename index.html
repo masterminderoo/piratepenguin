@@ -158,24 +158,27 @@
   const tours = {
     tour1: {
       title: "Food & Loot",
-      description: "Explore the 5th District and experience a variety of Hungarian food",
+      description: "Explore the 5th District and experience a variety of Hungarian food!",
       price: "6000 HUF (15€) per person",
       duration: "2.5 hours",
       language: "Szent Istvan Ter 1 (in front of the Basilika)"
+      ideal: "First Time Visitors, Food Enjoyers, Sightseeing Enthusiasts"
     },
     tour2: {
       title: "Games & Plunder",
-      description: "Explore the 6th District and enjoy yourself in a board game bar",
+      description: "Explore the 6th District and enjoy yourself in a board game bar! Board game tickets are included in the price.",
       price: "8000 HUF (20€) per person",
       duration: "3 hours",
-      language: "Andrassy Utca 22 (in front of the Opera)"
+      language: "Andrassy Utca 22 (in front of the Opera)",
+      ideal: "Board Game Fans, Video Game Fans, Social People"
     },
     tour3: {
       title: "Private Voyage",
-      description: "Get a tailored experience just for you (and your group).",
+      description: "Get a tailored experience just for you (and your group)! There won't be any other participants and you can choose the stages of the tour.",
       price: "20000 HUF (50€) per tour",
       duration: "2.5 hours",
-      language: "5th, 6th, 7th, or 8th district"
+      language: "5th, 6th, 7th, or 8th district",
+      ideal: "Families, Introverts, Big Friend Groups"
     }
   };
 
@@ -189,9 +192,10 @@ function updateDetails(tour) {
   details.innerHTML = `
     <h3>${tours[tour].title}</h3>
     <p>${tours[tour].description}</p>
-    <p><strong>Duration:</strong> ${tours[tour].duration}</p>
-    <p><strong>Starting Point:</strong> ${tours[tour].language}</p>
     <p><strong>Price:</strong> ${tours[tour].price}</p>
+    <p><strong>Duration:</strong> ${tours[tour].duration}</p>
+    <p><strong>Location:</strong> ${tours[tour].language}</p>
+    <p><strong>Ideal For:</strong> ${tours[tour].ideal}</p>
     
     
   `;
