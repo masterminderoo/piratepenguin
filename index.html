@@ -157,17 +157,17 @@
   <script>
   const tours = {
     tour1: {
-      title: "City Highlights",
-      description: "Explore the iconic landmarks of Budapest, from the Parliament to the Fisherman's Bastion, with hidden stories at every turn.",
-      price: "4000 HUF",
-      duration: "2 hours",
-      language: "English"
+      title: "Food & Loot",
+      description: "Explore the 5th District and experience a variety of Hungarian food",
+      price: "6000 HUF / 15€",
+      duration: "2.5 hours",
+      language: "Szent Istvan Ter 1 (in front of the Basilika)"
     },
     tour2: {
-      title: "Food & Culture",
-      description: "Taste Budapest's most authentic street food while learning about local customs and hidden markets.",
-      price: "5000 HUF",
-      duration: "3 hours",
+      title: "Games & Plunder",
+      description: "Explore the 6th District and try to beat your guide in a board game bar.",
+      price: "8000 HUF / 20€",
+      duration: "3.5 hours",
       language: "English"
     },
     tour3: {
@@ -189,9 +189,11 @@ function updateDetails(tour) {
   details.innerHTML = `
     <h3>${tours[tour].title}</h3>
     <p>${tours[tour].description}</p>
-    <p><strong>Price:</strong> ${tours[tour].price}</p>
     <p><strong>Duration:</strong> ${tours[tour].duration}</p>
-    <p><strong>Language:</strong> ${tours[tour].language}</p>
+    <p><strong>Starting Point:</strong> ${tours[tour].language}</p>
+    <p><strong>Price:</strong> ${tours[tour].price}</p>
+    
+    
   `;
   
   // Show details with smooth fade-in
