@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pirate Penguin Tours</title>
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.7/dayjs.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.7/plugin/weekday.min.js"></script>
-  <script>
-    dayjs.extend(dayjs_plugin_weekday);
-  </script>
+  <title>Budapest Walking Tour</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #fefefe; color: #222; }
     header { background: #222; color: white; padding: 1.5rem; text-align: center; }
@@ -19,14 +14,17 @@
     .tour-info td { padding: 0.5rem; }
     .cta-button { background: #222; color: white; padding: 1rem 2rem; border: none; font-size: 1rem; cursor: pointer; display: block; margin: 2rem auto; text-decoration: none; text-align: center; width: fit-content; border-radius: 5px; }
     footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #666; }
-    .calendar { display: flex; flex-wrap: wrap; margin-top: 20px; }
-    .calendar .day { width: 30px; height: 30px; margin: 5px; display: flex; justify-content: center; align-items: center; background-color: #f4f4f4; cursor: pointer; }
-    .calendar .day.active { background-color: #222; color: white; }
+    .calendar-container { text-align: center; }
+    .calendar { border-collapse: collapse; margin: 0 auto; font-size: 1rem; }
+    .calendar th, .calendar td { width: 30px; height: 30px; text-align: center; border: 1px solid #ddd; }
+    .calendar th { background-color: #222; color: white; }
+    .calendar td { cursor: pointer; padding: 10px; }
+    .calendar td:hover { background-color: #f4f4f4; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Pirate Penguin Tours</h1>
+    <h1>Budapest Walking Tour</h1>
     <p>Real Food, Real Stories – 4000 HUF per person</p>
   </header>
 
@@ -43,56 +41,96 @@
   </section>
 
   <section class="section">
-    <h2>Availability Calendar</h2>
-    <div id="calendar" class="calendar"></div>
+    <h2>Details</h2>
+    <table class="tour-info">
+      <tr><td><strong>Price:</strong></td><td>4000 HUF / person</td></tr>
+      <tr><td><strong>Duration:</strong></td><td>Approx. 2 hours</td></tr>
+      <tr><td><strong>Language:</strong></td><td>English</td></tr>
+      <tr><td><strong>Start Location:</strong></td><td>Deák Ferenc tér</td></tr>
+      <tr><td><strong>Available:</strong></td><td>Every day, on request</td></tr>
+    </table>
   </section>
 
   <section class="section">
-    <h2>Book Your Tour</h2>
-    <p>Contact me directly via WhatsApp to reserve your spot.</p>
-    <a href="https://wa.me/DEINE_NUMMER" class="cta-button">Message on WhatsApp</a>
+    <h2>What People Say</h2>
+    <p><em>“Way better than the crowded bus tours!”</em> – Anna (Germany)</p>
+    <p><em>“Loved the food spots and stories!”</em> – James (UK)</p>
+  </section>
+
+  <section class="section">
+    <h2>Choose Your Tour Date</h2>
+    <p>Select a date to book your tour:</p>
+    <div class="calendar-container">
+      <table class="calendar">
+        <thead>
+          <tr>
+            <th colspan="7">May 2025</th>
+          </tr>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Select a date above to reserve your spot!</p>
+    </div>
   </section>
 
   <footer>
     <p>This is a private walking tour. No history guide. No tickets included.</p>
-    <p>&copy; 2025 Pirate Penguin Tours</p>
+    <p>&copy; 2025 Budapest Walking Tour</p>
   </footer>
-
-  <script>
-    // Function to generate a simple calendar for the current month
-    function generateCalendar() {
-      const calendarContainer = document.getElementById('calendar');
-      const today = dayjs();
-      const startOfMonth = today.startOf('month');
-      const endOfMonth = today.endOf('month');
-      const daysInMonth = endOfMonth.date();
-      const firstDayOfWeek = startOfMonth.day();
-
-      // Clear any previous calendar
-      calendarContainer.innerHTML = '';
-
-      // Add empty divs for the days before the first day of the month
-      for (let i = 0; i < firstDayOfWeek; i++) {
-        calendarContainer.innerHTML += `<div class="day"></div>`;
-      }
-
-      // Add the days of the current month
-      for (let day = 1; day <= daysInMonth; day++) {
-        calendarContainer.innerHTML += `<div class="day">${day}</div>`;
-      }
-      
-      // Add click event to each day
-      const days = document.querySelectorAll('.calendar .day');
-      days.forEach(day => {
-        day.addEventListener('click', function() {
-          days.forEach(d => d.classList.remove('active'));
-          day.classList.add('active');
-        });
-      });
-    }
-
-    // Call the function to generate the calendar on page load
-    generateCalendar();
-  </script>
 </body>
 </html>
