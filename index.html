@@ -201,7 +201,7 @@ function updateDetails(tour) {
   backButton.style.display = "inline-block";
 
   // Scroll to the details section with smooth scrolling
-  detailsSection.scrolltoView({ behavior: 'smooth' });
+  detailsSection.scrollIntoView({ behavior: 'smooth' });
 }
 
 // Function to reset details and hide them, then scroll back to the tours gallery
@@ -218,7 +218,7 @@ function resetDetails() {
   backButton.style.display = "none";
 
   // Scroll back to the gallery section with smooth scrolling
-  gallerySection.scrolltoView({ behavior: 'smooth' });
+  gallerySection.scrollIntoView({ behavior: 'smooth' });
 }
 </script>
 </body>
