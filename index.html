@@ -25,7 +25,7 @@
 </head>
 <body>
   <header>
-    <img src="https://github.com/masterminderoo/piratepenguin/blob/main/piratepengulogonobg.png?raw=true" alt="Pirate Penguin Logo" style="width: 400px; height: auto;" />
+    <img src="https://github.com/masterminderoo/piratepenguin/blob/main/piratepengulogonobg.png?raw=true" alt="Pirate Penguin Logo" style="width: 350px; height: auto;" />
     <h1>Budapest Walking Tour</h1>
     <p>Discover Budapest's Hidden Treasure</p>
   </header>
@@ -183,6 +183,7 @@
   function updateDetails(tour) {
     const details = document.getElementById("details");
     const backButton = document.getElementById("backButton");
+    const detailsSection = document.querySelector('.section:nth-of-type(3)');
     
     // Change content dynamically
     details.innerHTML = `
@@ -198,6 +199,8 @@
 
     // Show the back button
     backButton.style.display = "inline-block";
+      // Scroll to the details section with smooth scrolling
+  detailsSection.scrolltoView({ behavior: 'smooth' });
   }
 
   // Function to reset details and hide them
@@ -211,6 +214,8 @@
     // Hide details and back button with a fade-out effect
     details.classList.remove("show");
     backButton.style.display = "none";
+    // Scroll back to the gallery section with smooth scrolling
+  gallerySection.scrolltoView({ behavior: 'smooth' });
   }
 </script>
 </body>
