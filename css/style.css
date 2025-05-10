@@ -132,3 +132,7 @@ footer {
 #backButton:hover {
   background-color: #444;
 }
+
+html {
+  scroll-behavior: smooth;
+}
