@@ -70,6 +70,7 @@
   <div id="details">
     <p>Select a tour to see the details.</p>
   </div>
+    <button id="backButton" onclick="resetDetails()" style="display: none;">Back to Tours</button>
 </section>
 
   <section class="section">
@@ -178,8 +179,12 @@
     }
   };
 
+  // Function to update details dynamically
   function updateDetails(tour) {
     const details = document.getElementById("details");
+    const backButton = document.getElementById("backButton");
+    
+    // Change content dynamically
     details.innerHTML = `
       <h3>${tours[tour].title}</h3>
       <p>${tours[tour].description}</p>
@@ -187,6 +192,25 @@
       <p><strong>Duration:</strong> ${tours[tour].duration}</p>
       <p><strong>Language:</strong> ${tours[tour].language}</p>
     `;
+    
+    // Show details with smooth fade-in
+    details.classList.add("show");
+
+    // Show the back button
+    backButton.style.display = "inline-block";
+  }
+
+  // Function to reset details and hide them
+  function resetDetails() {
+    const details = document.getElementById("details");
+    const backButton = document.getElementById("backButton");
+
+    // Reset content to default message
+    details.innerHTML = `<p>Select a tour to see the details.</p>`;
+    
+    // Hide details and back button with a fade-out effect
+    details.classList.remove("show");
+    backButton.style.display = "none";
   }
 </script>
 </body>
