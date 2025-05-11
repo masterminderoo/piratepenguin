@@ -133,21 +133,24 @@ footer {
   background-color: #444;
 }
 
-.calendar td {
-  width: 280px; /* Increased width of each cell */
-  height: 40px; /* You can adjust the height as well */
+.calendar {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 1rem;
+  width: 100%;
+  table-layout: fixed; /* Forces equal-width columns */
+}
+
+.calendar th, .calendar td {
+  padding: 10px;
   text-align: center;
   border: 1px solid #ddd;
-  word-wrap: normal; /* Prevent word breaking */
-  overflow: hidden; /* Hide overflowed content */
+  white-space: nowrap; /* Prevents line breaks */
 }
 
 .calendar th {
-  width: 280px; /* Ensure headers are the same width as the cells */
-  height: 40px; /* Match header height with cell height */
   background-color: #222;
   color: white;
-  text-align: center;
 }
 
 html {
