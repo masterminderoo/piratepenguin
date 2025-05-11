@@ -133,6 +133,23 @@ footer {
   background-color: #444;
 }
 
+.calendar td {
+  width: 80px; /* Increased width of each cell */
+  height: 40px; /* You can adjust the height as well */
+  text-align: center;
+  border: 1px solid #ddd;
+  word-wrap: normal; /* Prevent word breaking */
+  overflow: hidden; /* Hide overflowed content */
+}
+
+.calendar th {
+  width: 80px; /* Ensure headers are the same width as the cells */
+  height: 40px; /* Match header height with cell height */
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
 html {
   scroll-behavior: smooth;
 }
