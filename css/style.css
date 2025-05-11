@@ -133,52 +133,55 @@ footer {
   background-color: #444;
 }
 
-.calendar {
-  border-collapse: collapse;
-  margin: 0 auto;
-  font-size: 1rem;
-  width: 100%;
-  table-layout: fixed;
-  background-color: #2B2B2B;
-  color: #F5F5F5;
-  border: 1px solid #444;
-}
-
-.calendar th {
-  background-color: #D4AF37;
-  color: #222;
-  padding: 12px;
-  font-family: Georgia, serif;
-  text-transform: uppercase;
-  border: 1px solid #444;
-}
-
-.calendar td {
-  padding: 12px;
-  text-align: center;
-  border: 1px solid #444;
-  white-space: nowrap;
-  background-color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Zebra Striping */
-.calendar tr:nth-child(even) td {
-  background-color: #2F2F2F;
-}
-
-/* Hover Effects */
-.calendar tr:hover td {
-  background-color: #444;
-  cursor: pointer;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+<style>
   .calendar {
-    font-size: 0.9rem;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 1rem;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #2B2B2B; /* Dark pirate wood */
+    color: #F5F5F5; /* Light text for contrast */
+    border: 1px solid #444;
   }
-}
+
+  .calendar th {
+    background-color: #D4AF37 !important; /* Pirate gold */
+    color: #222 !important; /* Dark text */
+    padding: 12px;
+    font-family: Georgia, serif;
+    text-transform: uppercase;
+    border: 1px solid #444;
+  }
+
+  .calendar td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #444;
+    white-space: nowrap;
+    background-color: #333; /* Dark wood plank */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Zebra Striping for Plank Effect */
+  .calendar tr:nth-child(even) td {
+    background-color: #2F2F2F; /* Slightly lighter dark */
+  }
+
+  /* Hover Effects */
+  .calendar tr:hover td {
+    background-color: #444;
+    cursor: pointer;
+  }
+
+  /* Responsive Support */
+  @media (max-width: 768px) {
+    .calendar {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
 
 
 html {
