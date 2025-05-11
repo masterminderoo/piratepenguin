@@ -134,7 +134,7 @@ footer {
 }
 
 .calendar td {
-  width: 80px; /* Increased width of each cell */
+  width: 280px; /* Increased width of each cell */
   height: 40px; /* You can adjust the height as well */
   text-align: center;
   border: 1px solid #ddd;
@@ -143,7 +143,7 @@ footer {
 }
 
 .calendar th {
-  width: 80px; /* Ensure headers are the same width as the cells */
+  width: 280px; /* Ensure headers are the same width as the cells */
   height: 40px; /* Match header height with cell height */
   background-color: #222;
   color: white;
