@@ -113,24 +113,30 @@
       calendar.innerHTML = ''; // Clear existing content
 
       // Create table headers
-      const headers = `<tr>
-        <th>Date</th>
-        <th>Tour</th>
-        <th>Start Time</th>
-        <th>Spots Left</th>
-      </tr>`;
-      calendar.innerHTML += headers;
+      const headers = `
+   <thead>
+     <tr>
+       <th class="header-gold">Date</th>
+       <th class="header-gold">Tour</th>
+       <th class="header-gold">Start Time</th>
+       <th class="header-gold">Spots Left</th>
+     </tr>
+   </thead>`;
 
-      // Populate rows
-      data.forEach((row) => {
-       const formattedDate = formatDate(row.date); // Format the date
-         calendar.innerHTML += `<tr>
-          <td>${formattedDate}</td>
-          <td>${row.tourName}</td>
-          <td>${row.participants}</td>
-          <td>${row.spotsLeft}</td>
-        </tr>`;
-      });
+// Apply headers
+calendar.innerHTML = headers;
+
+// Populate rows
+data.forEach((row, index) => {
+  const formattedDate = formatDate(row.date); // Format the date
+  calendar.innerHTML += `
+     <tr class="${index % 2 === 0 ? 'dark-row' : 'light-row'}">
+       <td>${formattedDate}</td>
+       <td>${row.tourName}</td>
+       <td>${row.participants}</td>
+       <td>${row.spotsLeft}</td>
+     </tr>`;
+});
     } catch (error) {
       console.error('Error fetching data:', error);
     }
