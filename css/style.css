@@ -165,6 +165,25 @@ footer {
     background-color: #444;
   }
 
+.header-gold {
+  background-color: #D4AF37;
+  color: #222;
+  padding: 12px;
+  border: 1px solid #444;
+}
+
+.dark-row {
+  background-color: #2F2F2F;
+}
+
+.light-row {
+  background-color: #3A3A3A;
+}
+
+.calendar tr:hover td {
+  background-color: #444;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
