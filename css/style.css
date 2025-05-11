@@ -140,48 +140,32 @@ footer {
     font-size: 1rem;
     width: 100%;
     table-layout: fixed;
-    background-color: #2B2B2B; /* Dark pirate wood */
-    color: #F5F5F5; /* Light text for contrast */
-    border: 1px solid #444;
+    background-color: #2B2B2B;
+    color: #F5F5F5;
   }
 
   .calendar th {
-    background-color: #D4AF37 !important; /* Pirate gold */
-    color: #222 !important; /* Dark text */
+    background-color: #D4AF37;
+    color: #222;
     padding: 12px;
-    font-family: Georgia, serif;
-    text-transform: uppercase;
     border: 1px solid #444;
   }
 
   .calendar td {
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     border: 1px solid #444;
-    white-space: nowrap;
-    background-color: #333; /* Dark wood plank */
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #333;
   }
 
-  /* Zebra Striping for Plank Effect */
   .calendar tr:nth-child(even) td {
-    background-color: #2F2F2F; /* Slightly lighter dark */
+    background-color: #2F2F2F;
   }
 
-  /* Hover Effects */
   .calendar tr:hover td {
     background-color: #444;
-    cursor: pointer;
-  }
-
-  /* Responsive Support */
-  @media (max-width: 768px) {
-    .calendar {
-      font-size: 0.9rem;
-    }
   }
 </style>
-
 
 
 html {
