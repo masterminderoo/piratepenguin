@@ -144,6 +144,7 @@ footer {
     color: #F5F5F5;
   }
 
+  /* Header styling */
   .calendar th {
     background-color: #D4AF37; /* Gold */
     color: #222;
@@ -151,6 +152,7 @@ footer {
     border: 1px solid #444;
   }
 
+  /* Row styling */
   .calendar td {
     padding: 10px;
     text-align: center;
@@ -158,13 +160,13 @@ footer {
     background-color: #333;
   }
 
-  /* Zebra Striping */
+  /* Zebra striping (alternating row colors) */
   .calendar tr:nth-child(odd) td {
-    background-color: #2F2F2F; /* Darker grey */
+    background-color: #3A3A3A; /* Slightly lighter grey */
   }
 
   .calendar tr:nth-child(even) td {
-    background-color: #3A3A3A; /* Slightly lighter grey */
+    background-color: #2F2F2F; /* Darker grey */
   }
 
   /* Hover effect */
