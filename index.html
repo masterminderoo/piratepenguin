@@ -135,8 +135,9 @@
 
       // Populate rows
       data.forEach((row) => {
-        calendar.innerHTML += `<tr>
-          <td>${row.date}</td>
+       const formattedDate = formatDate(row.date); // Format the date
+         calendar.innerHTML += `<tr>
+          <td>${formattedDate}</td>
           <td>${row.tourName}</td>
           <td>${row.participants}</td>
           <td>${row.spotsLeft}</td>
