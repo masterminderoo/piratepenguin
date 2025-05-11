@@ -154,37 +154,38 @@
   async function fetchBookings() {
   const apiUrl = 'https://script.google.com/macros/s/AKfycbwRqxDE-WZfHqEPa80-taNvl4Hmix7BKN777hpZ8X2qbDUgXKNc8JrDAofNHZQBpGoz/exec'; // Replace with your Apps Script URL
   try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+      const response = await fetch(apiUrl);
+      const data = await response.json();
 
-    // Select all the <td> elements in your calendar grid
-    const calendarCells = document.querySelectorAll('.calendar td');
+      // Find the calendar section in your HTML
+      const calendar = document.querySelector('.calendar');
+      calendar.innerHTML = ''; // Clear existing content
 
-    // Loop through your data from Google Sheets
-    data.forEach((row) => {
-      const date = parseInt(row.date); // Assuming row.date is like "1", "2", "3" etc.
-      const participants = parseInt(row.participants);
-      const spotsLeft = 10 - participants; // Since max is 10
-      
-      // Find the right calendar cell and update it
-      calendarCells.forEach((cell) => {
-        if (parseInt(cell.innerText) === date) {
-          cell.innerHTML = `${date}<br><small>Spots: ${spotsLeft}</small>`;
-          
-          // Optional: color the cell if full
-          if (spotsLeft <= 0) {
-            cell.style.backgroundColor = '#ffcccc';
-          }
-        }
+      // Create table headers
+      const headers = `<tr>
+        <th>Date</th>
+        <th>Tour Name</th>
+        <th>Participants</th>
+        <th>Spots Left</th>
+      </tr>`;
+      calendar.innerHTML += headers;
+
+      // Populate rows
+      data.forEach((row) => {
+        calendar.innerHTML += `<tr>
+          <td>${row.date}</td>
+          <td>${row.tourName}</td>
+          <td>${row.participants}</td>
+          <td>${row.spotsLeft}</td>
+        </tr>`;
       });
-    });
-  } catch (error) {
-    console.error('Error fetching data:', error);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   }
-}
 
-// Call the function to fetch data when the page loads
-window.onload = fetchBookings;
+  // Call the function to fetch data when the page loads
+  window.onload = fetchBookings;
 </script>
 
 
