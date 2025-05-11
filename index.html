@@ -41,7 +41,7 @@
       <ul>
         <p>⚓ No scripted lectures. No boring history lessons. Just Budapest.</p>
         <p>🐧 Enjoy funny anecdotes about living in the city and get insider tips on secret restaurants</p>
-        <p>🏴‍☠️ Wander where the locals roam – hidden corners, cozy cafés, and off-map gems that tourists never find.</p>
+        <p>🏴‍☠️ Wander where the locals roam – hidden corners, cozy cafés, and off-map gems that tourists never find</p>
       </ul>
     </div>
   </section>
@@ -151,6 +151,14 @@
   </section>
 
   <script>
+    function formatDate(dateString) {
+      const date = new Date(dateString); // Convert the string into a Date object
+      
+      const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+      const formattedDate = date.toLocaleDateString('en-GB', options); // 'en-GB' ensures the day/month order is DD/MM/YYYY
+      
+      return formattedDate.replace(/\//g, '.'); // Replace slashes with dots
+    }
   async function fetchBookings() {
   const apiUrl = 'https://script.google.com/macros/s/AKfycbwRqxDE-WZfHqEPa80-taNvl4Hmix7BKN777hpZ8X2qbDUgXKNc8JrDAofNHZQBpGoz/exec'; // Replace with your Apps Script URL
   try {
