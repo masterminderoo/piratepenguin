@@ -21,14 +21,6 @@ background:
   z-index: -1;
 }
 
-p, li, .highlight p {
-  color: white;
-  text-shadow: 
-    -1px -1px 0 #fff,  
-    1px -1px 0 #fff,  
-    -1px 1px 0 #fff,  
-    1px 1px 0 #fff;
-}
 
 header {
   background: #222;
