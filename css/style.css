@@ -38,7 +38,7 @@ header p {
   margin: 0.5rem 0 0;
   font-size: 1.2rem;
   text-shadow: 10px 10px 40px rgba(0, 0, 0, 0.9); /* Optional shadow */
-  -webkit-text-stroke: 0.5px black; /* Thinner outline */
+  -webkit-text-stroke: 3.5px blue; /* Thinner outline */
 }
 
 .section {
