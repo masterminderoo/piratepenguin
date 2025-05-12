@@ -160,7 +160,7 @@ footer {
   background-color: #FFB6C1; /* Soft pink */
 }
 
-.calendar tbody tr:nth-child(even) td {
+.calendar tr:nth-child(even) td {
   background-color: #4B0082; /* Deep indigo */
 }
 
