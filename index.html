@@ -94,50 +94,50 @@
     </div>
   </section>
 
-  <script>
-    function formatDate(dateString) {
-      const date = new Date(dateString); // Convert the string into a Date object
-      
-      const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
-      const formattedDate = date.toLocaleDateString('en-GB', options); // 'en-GB' ensures the day/month order is DD/MM/YYYY
-      
-      return formattedDate.replace(/\//g, '.'); // Replace slashes with dots
-    }
+<script>
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+    return date.toLocaleDateString('en-GB', options).replace(/\//g, '.');
+  }
+
   async function fetchBookings() {
-  const apiUrl = 'https://script.google.com/macros/s/AKfycbwRqxDE-WZfHqEPa80-taNvl4Hmix7BKN777hpZ8X2qbDUgXKNc8JrDAofNHZQBpGoz/exec'; // Replace with your Apps Script URL
-  try {
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbwRqxDE-WZfHqEPa80-taNvl4Hmix7BKN777hpZ8X2qbDUgXKNc8JrDAofNHZQBpGoz/exec';
+
+    try {
       const response = await fetch(apiUrl);
       const data = await response.json();
-
-      // Find the calendar section in your HTML
       const calendar = document.querySelector('.calendar');
-      calendar.innerHTML = ''; // Clear existing content
 
       // Create table headers
       const headers = `
-   <thead>
-     <tr>
-       <th class="header-gold">Date</th>
-       <th class="header-gold">Tour</th>
-       <th class="header-gold">Start Time</th>
-       <th class="header-gold">Spots Left</th>
-     </tr>
-   </thead>`;
+        <thead>
+          <tr>
+            <th class="header-gold">Date</th>
+            <th class="header-gold">Tour</th>
+            <th class="header-gold">Start Time</th>
+            <th class="header-gold">Spots Left</th>
+          </tr>
+        </thead>`;
+      calendar.innerHTML = headers;
 
-// Apply headers
-calendar.innerHTML = headers;
+      // Populate rows
+      data.forEach((row, index) => {
+        const formattedDate = formatDate(row.date);
+        const isFull = parseInt(row.spotsLeft) === 0;
+        
+        // Inline styling for the cell
+        const spotsLeftStyle = isFull ? 'style="background-color: #B22222; color: white; font-weight: bold;"' : '';
 
-// Populate rows
-data.forEach((row, index) => {
-  const formattedDate = formatDate(row.date); // Format the date
-  calendar.innerHTML += `
-     <tr style="background-color: ${index % 2 === 0 ? '#8B4513' : '#A0522D'};">
-       <td>${formattedDate}</td>
-       <td>${row.tourName}</td>
-       <td>${row.participants}</td>
-       <td>${row.spotsLeft}</td>
-     </tr>`;
-});
+        // Append row
+        calendar.innerHTML += `
+          <tr style="background-color: ${index % 2 === 0 ? '#8B4513' : '#A0522D'};">
+            <td>${formattedDate}</td>
+            <td>${row.tourName}</td>
+            <td>${row.participants}</td>
+            <td ${spotsLeftStyle}>${row.spotsLeft}</td>
+          </tr>`;
+      });
     } catch (error) {
       console.error('Error fetching data:', error);
     }
