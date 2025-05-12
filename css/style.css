@@ -43,7 +43,7 @@ p {
   font-size: 20px;
   font-weight: bold;
   -webkit-text-stroke: 0px black;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.99);
+  text-shadow: 3px 3px 9px rgba(0, 0, 0, 0.99);
 }
   
 .section {
