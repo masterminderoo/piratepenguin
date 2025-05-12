@@ -157,11 +157,11 @@ footer {
 
 /* Apply zebra stripes to the TD elements directly */
 .calendar tbody tr:nth-child(odd) td {
-  background-color: #FFB6C1 !important; /* Soft pink */
+  background-color: #FFB6C1; /* Soft pink */
 }
 
 .calendar tbody tr:nth-child(even) td {
-  background-color: #4B0082 !important; /* Deep indigo */
+  background-color: #4B0082; /* Deep indigo */
 }
 
 .header-gold {
@@ -170,15 +170,6 @@ footer {
   padding: 12px;
   border: 1px solid #444;
 }
-
-.calendar tbody tr:nth-child(odd) {
-  background-color: #FFB6C1 !important; /* Soft pink */
-}
-
-.calendar tbody tr:nth-child(even) {
-  background-color: #4B0082 !important; /* Deep indigo */
-}
-
 
 .calendar tr:hover td {
   background-color: #444;
