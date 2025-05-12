@@ -32,7 +32,6 @@ header {
 header h1 {
   margin: 0;
   font-size: 2rem;
-  -webkit-text-stroke: 1px white;
 }
 
 header p {
@@ -41,7 +40,7 @@ header p {
 }
 
 p {
-  font-size: 2.2rem
+  font-size: 5.2rem
   font-weight: bold;
   -webkit-text-stroke: 0.5px white;
 }
