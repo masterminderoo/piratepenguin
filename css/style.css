@@ -156,7 +156,7 @@ footer {
 }
 
 /* Apply zebra stripes to the TD elements directly */
-.calendar tbody tr:nth-child(odd) td {
+.calendar tr:nth-child(odd) td {
   background-color: #FFB6C1; /* Soft pink */
 }
 
