@@ -22,7 +22,7 @@ background:
 }
 
 header {
-  background: rgba(34, 34, 34, 0.8); /* Dark background with transparency for better contrast */
+  background: #222;
   color: white;
   padding: 1.5rem;
   text-align: center;
@@ -37,7 +37,8 @@ header h1 {
 header p {
   margin: 0.5rem 0 0;
   font-size: 1.2rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); 
+  text-shadow: 10px 10px 40px rgba(0, 0, 0, 0.9); /* Optional shadow */
+  -webkit-text-stroke: 0.5px black; /* Thinner outline */
 }
 
 .section {
