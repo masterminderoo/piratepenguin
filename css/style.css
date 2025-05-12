@@ -33,26 +33,23 @@ header h1 {
   margin: 0;
   font-size: 2rem;
     -webkit-text-stroke: 0.5px black;
+}
 
+h2 {
+-webkit-text-stroke: 1px #D4AF37;
 }
 
 header p {
   margin: 0.5rem 0 0;
   font-size: 1.2rem;
     -webkit-text-stroke: 0.3px black;
-
 }
 
 p {
   font-size: 20px;
   font-weight: bold;
-  -webkit-text-stroke: 0.1px white;
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+  -webkit-text-stroke: 0.2px black;
   color: white;
-  padding: 5px 10px; /* Adjust the padding to your preference */
-  border-radius: 5px;
-  display: inline-block;
-  margin-bottom: 10px;
 }
   
 .section {
