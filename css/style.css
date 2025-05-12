@@ -168,13 +168,14 @@ footer {
   border: 1px solid #444;
 }
 
-.calendar tbody tr.light-row {
+.calendar tbody tr:nth-child(odd) {
   background-color: #FFB6C1 !important; /* Soft pink */
 }
 
-.calendar tbody tr.dark-row {
+.calendar tbody tr:nth-child(even) {
   background-color: #4B0082 !important; /* Deep indigo */
 }
+
 
 .calendar tr:hover td {
   background-color: #444;
