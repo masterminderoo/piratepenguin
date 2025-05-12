@@ -131,7 +131,7 @@ calendar.innerHTML = headers;
 data.forEach((row, index) => {
   const formattedDate = formatDate(row.date); // Format the date
   calendar.innerHTML += `
-     <tr class="${index % 2 === 0 ? 'dark-row' : 'light-row'}">
+     <tr style="background-color: ${index % 2 === 0 ? '#00FF00' : '#FFB6C1'};">
        <td>${formattedDate}</td>
        <td>${row.tourName}</td>
        <td>${row.participants}</td>
