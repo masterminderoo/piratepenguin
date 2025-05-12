@@ -36,8 +36,7 @@ header h1 {
 }
 
 h2 {
--webkit-text-stroke: 1px #D4AF37;
-  color: white;
+color: #D4AF37;
 }
 
 header p {
@@ -49,7 +48,6 @@ header p {
 p {
   font-size: 20px;
   font-weight: bold;
-  -webkit-text-stroke: 0.2px black;
   color: white;
 }
   
