@@ -47,6 +47,12 @@ p {
   font-size: 20px;
   font-weight: bold;
   -webkit-text-stroke: 0.1px white;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+  color: white;
+  padding: 5px 10px; /* Adjust the padding to your preference */
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
   
 .section {
