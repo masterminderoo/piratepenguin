@@ -15,7 +15,7 @@ body::before {
   height: 100%; /* Only take the height of the viewport */
 background: 
   linear-gradient(rgba(3, 138, 255, 0.3), rgba(0, 102, 153, 0.3)), 
-  url('./piratepengubg1.jpg') 
+  url('../piratepengubg1.jpg') 
   no-repeat center center fixed;
   background-size: cover;
   z-index: -1;
