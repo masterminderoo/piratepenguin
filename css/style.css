@@ -27,7 +27,6 @@ header {
   color: white;
   padding: 1.5rem;
   text-align: center;
-  border-radius: 10px; /* Optional, just to give a smooth border */
 }
 
 header h1 {
