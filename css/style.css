@@ -40,9 +40,9 @@ header p {
 }
 
 p {
-  font-size: 5.2rem
+  font-size: 50px
   font-weight: bold;
-  -webkit-text-stroke: 0.5px white;
+  -webkit-text-stroke: 0.2px white;
 }
   
 .section {
