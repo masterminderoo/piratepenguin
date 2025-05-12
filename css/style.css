@@ -46,7 +46,7 @@ header p {
 p {
   font-size: 20px;
   font-weight: bold;
-  -webkit-text-stroke: 1px white;
+  -webkit-text-stroke: 0.1px white;
 }
   
 .section {
