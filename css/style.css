@@ -14,7 +14,7 @@ body::before {
   width: 100%;
   height: 100%; /* Only take the height of the viewport */
 background: 
-  linear-gradient(rgba(3, 138, 255, 0.7), rgba(0, 102, 153, 0.1)), 
+  linear-gradient(rgba(3, 138, 255, 0.3), rgba(0, 102, 153, 0.3)), 
   url('https://github.com/masterminderoo/piratepenguin/blob/main/piratepenguinbg1.jpg?raw=true') 
   no-repeat center center fixed;
   background-size: cover;
