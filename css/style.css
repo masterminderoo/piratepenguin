@@ -40,7 +40,7 @@ header p {
 }
 
 p {
-  font-size: 50px
+  font-size: 50px;
   font-weight: bold;
   -webkit-text-stroke: 0.2px white;
 }
