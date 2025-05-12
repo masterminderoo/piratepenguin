@@ -155,17 +155,6 @@ footer {
   border: 1px solid #444;
 }
 
-.calendar tbody {
-  display: table-row-group;
-}
-
-.calendar tbody tr:nth-child(odd) {
-  background-color: #FFB6C1 !important; /* Soft pink */
-}
-
-.calendar tbody tr:nth-child(even) {
-  background-color: #00FF00 !important; /* Bright green */
-}
 
 .header-gold {
   background-color: #D4AF37;
