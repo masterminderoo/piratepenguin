@@ -38,6 +38,7 @@ header h1 {
 h2 {
 color: #D4AF37;
 -webkit-text-stroke: 0.3px black;
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
 }
 
 header p {
@@ -51,6 +52,7 @@ p {
   font-weight: bold;
   color: white;
   -webkit-text-stroke: 0.1px black;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
 }
   
 .section {
