@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   background: #fefefe;
-  color: white;
+  color: #222;
   position: relative; /* This makes sure elements on top are positioned correctly */
 }
 
@@ -37,6 +37,7 @@ header h1 {
 header p {
   margin: 0.5rem 0 0;
   font-size: 1.2rem;
+  -webkit-text-stroke: 1px white;
 }
 
 .section {
