@@ -227,5 +227,10 @@ html {
   .gallery {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* More flexible grid */
   }
+  img[src="./ppromo.jpg"] {
+    width: 100%;
+    max-width: 300px; /* You can adjust this value */
+    height: auto;
+  }
 }
 
