@@ -269,6 +269,6 @@ html {
   }
   .overlay {
     opacity: 1 !important;  }
-    width: 200px;
+    width: 200px !important;
 }
 
