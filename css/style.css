@@ -234,8 +234,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 5px solid #D4AF37; /* Or whatever your border color is */
-    border-radius: 20px;
+    border: 0px solid #D4AF37; /* Or whatever your border color is */
+    border-radius: 0px;
     box-sizing: border-box; /* This makes the border part of the width */
   }
 
@@ -243,6 +243,9 @@ html {
     width: 100%;
     height: auto;
     object-fit: cover;
+    border: 5px solid #D4AF37; /* Or whatever your border color is */
+    border-radius: 20px;
+    box-sizing: border-box; /* This makes the border part of the width */
   }
   
   img[src="./ppromo.jpg"] {
