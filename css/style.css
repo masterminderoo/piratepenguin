@@ -227,7 +227,7 @@ html {
   }
 
   .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* More flexible grid */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* More flexible grid */
   }
   img[src="./ppromo.jpg"] {
     width: 100%;
@@ -236,7 +236,7 @@ html {
   }
     img[src="./piratepenguinroles.jpg"] {
     width: 100%;
-    max-width: 3500px; /* You can adjust this value */
+    max-width: 350px; /* You can adjust this value */
     height: auto;
   }
 }
