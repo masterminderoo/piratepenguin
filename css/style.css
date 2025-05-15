@@ -255,5 +255,8 @@ html {
     max-width: 350px; /* You can adjust this value */
     height: auto;
   }
+    .overlay {
+    opacity: 1 !important; /* Make it always visible */
+  }
 }
 
