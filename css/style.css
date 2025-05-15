@@ -226,7 +226,7 @@ html {
 
   img[src="./piratepengulogo.png"] {
     width: 100%;
-    max-width: 250px; /* You can adjust this value */
+    max-width: 80vw; /* You can adjust this value */
     height: auto;
   }
 
@@ -258,17 +258,15 @@ html {
   
   img[src="./ppromo.jpg"] {
     width: 100%;
-    max-width: 300px; /* You can adjust this value */
+    max-width: 95vw; /* You can adjust this value */
     height: auto;
   }
     img[src="./piratepenguinroles.jpg"] {
     width: 100%;
-    max-width: 90vw; /* You can adjust this value */
+    max-width: 95vw; /* You can adjust this value */
     height: auto;
   }
     .overlay {
-    position: absolute;
-    inset: 0; /* top:0; right:0; bottom:0; left:0; */
     box-sizing: border-box;
     opacity: 1 !important; /* Make it always visible */
   }
