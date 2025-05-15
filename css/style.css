@@ -242,6 +242,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    display: inline-block;
     border: 0px solid #D4AF37; /* Or whatever your border color is */
     border-radius: 0px;
     box-sizing: border-box; /* This makes the border part of the width */
@@ -269,6 +270,6 @@ html {
   }
   .overlay {
     opacity: 1 !important;  }
-    width: 200px !important;
+    width: 100%;
 }
 
