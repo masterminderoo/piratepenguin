@@ -269,6 +269,7 @@ html {
   }
   .overlay {
     opacity: 1 !important;  }
-    width: 90%;
+    width: 70%;
+    border-radius: 20px;
 }
 
