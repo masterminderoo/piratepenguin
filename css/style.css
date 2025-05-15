@@ -268,18 +268,10 @@ html {
     height: auto;
   }
   .overlay {
-  opacity: 1 !important; /* Make it always visible */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-size: 1.1rem;
-  max-width: 100%; /* Ensures it doesn't overflow */
-  box-sizing: border-box; /* Includes padding in width calculations */
+    opacity: 1 !important; /* Make it always visible */
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
