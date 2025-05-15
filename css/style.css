@@ -245,6 +245,7 @@ html {
     border: 0px solid #D4AF37; /* Or whatever your border color is */
     border-radius: 0px;
     box-sizing: border-box; /* This makes the border part of the width */
+    overflow: hidden;
   }
 
  .gallery-item img {
@@ -266,7 +267,7 @@ html {
     max-width: 90vw; /* You can adjust this value */
     height: auto;
   }
-    .overlay {
+  .overlay {
   opacity: 1 !important; /* Make it always visible */
   position: absolute;
   bottom: 0;
