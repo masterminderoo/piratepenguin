@@ -252,7 +252,7 @@ html {
   }
     img[src="./piratepenguinroles.jpg"] {
     width: 100%;
-    max-width: 350px; /* You can adjust this value */
+    max-width: 330px; /* You can adjust this value */
     height: auto;
   }
     .overlay {
