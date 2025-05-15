@@ -209,4 +209,23 @@ footer {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Slightly reduce font size for better readability */
+  }
+
+  header img {
+    width: 250px; /* Smaller logo */
+  }
+
+  .section {
+    padding: 1rem; /* Less padding on mobile */
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* More flexible grid */
+  }
 }
+
