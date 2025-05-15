@@ -270,8 +270,7 @@ html {
   }
   .overlay {
     opacity: 1 !important;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 200px;
+    width: 280px;
     border-radius: 20px;
     margin-left: auto;       /* centers horizontally */
     margin-right: auto;      /* centers horizontally */
