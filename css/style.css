@@ -258,17 +258,27 @@ html {
   
   img[src="./ppromo.jpg"] {
     width: 100%;
-    max-width: 95vw; /* You can adjust this value */
+    max-width: 90vw; /* You can adjust this value */
     height: auto;
   }
     img[src="./piratepenguinroles.jpg"] {
     width: 100%;
-    max-width: 95vw; /* You can adjust this value */
+    max-width: 90vw; /* You can adjust this value */
     height: auto;
   }
     .overlay {
-    box-sizing: border-box;
-    opacity: 1 !important; /* Make it always visible */
+  opacity: 1 !important; /* Make it always visible */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.1rem;
+  max-width: 100%; /* Ensures it doesn't overflow */
+  box-sizing: border-box; /* Includes padding in width calculations */
   }
 }
 
