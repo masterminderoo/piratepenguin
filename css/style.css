@@ -269,17 +269,8 @@ html {
     height: auto;
   }
   .overlay {
-    opacity: 1 !important;  
+    opacity: 1 !important;
+    width: 70%;
   }
-  .img-wrapper {
-  display: inline-block; /* shrinks to image width */
-  position: relative;
-}
-
-.img-wrapper img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 }
 
