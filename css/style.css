@@ -268,7 +268,6 @@ html {
     height: auto;
   }
   .overlay {
-    opacity: 1 !important; /* Make it always visible */
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
