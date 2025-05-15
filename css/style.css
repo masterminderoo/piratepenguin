@@ -218,7 +218,7 @@ html {
 
   img[src="./piratepengulogo.png"] {
     width: 100%;
-    max-width: 300px; /* You can adjust this value */
+    max-width: 250px; /* You can adjust this value */
     height: auto;
   }
 
@@ -227,7 +227,7 @@ html {
   }
 
   .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More flexible grid */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* More flexible grid */
   }
   img[src="./ppromo.jpg"] {
     width: 100%;
@@ -236,7 +236,7 @@ html {
   }
     img[src="./piratepenguinroles.jpg"] {
     width: 100%;
-    max-width: 400px; /* You can adjust this value */
+    max-width: 3500px; /* You can adjust this value */
     height: auto;
   }
 }
