@@ -216,8 +216,10 @@ html {
     font-size: 14px; /* Slightly reduce font size for better readability */
   }
 
-  header img {
-    width: 200px; /* Smaller logo */
+  img[src="./piratepengulogo.png"] {
+    width: 100%;
+    max-width: 300px; /* You can adjust this value */
+    height: auto;
   }
 
   .section {
@@ -230,6 +232,11 @@ html {
   img[src="./ppromo.jpg"] {
     width: 100%;
     max-width: 300px; /* You can adjust this value */
+    height: auto;
+  }
+    img[src="./piratepenguinroles.jpg"] {
+    width: 100%;
+    max-width: 400px; /* You can adjust this value */
     height: auto;
   }
 }
