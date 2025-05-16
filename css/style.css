@@ -248,6 +248,7 @@ html {
     box-sizing: border-box; /* This makes the border part of the width */
     overflow: hidden;
     max-width: 100%;
+    width: 90vw;
   }
 
  .gallery-item img {
