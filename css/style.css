@@ -254,8 +254,6 @@ html {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border: 5px solid #D4AF37; /* Or whatever your border color is */
-    border-radius: 20px;
     box-sizing: border-box; /* This makes the border part of the width */
   }
   
