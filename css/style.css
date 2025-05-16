@@ -247,7 +247,7 @@ html {
     border-radius: 20px;
     box-sizing: border-box; /* This makes the border part of the width */
     overflow: hidden;
-    max-width: 100%;
+    max-width: 90vw;
     width: 90vw;
   }
 
