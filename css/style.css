@@ -100,6 +100,16 @@ footer {
   color: #666;
 }
 
+footer a {
+    color: #D4AF37;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 img {
   display: block;          /* makes the image act like a block element */
   max-width: 100%;         /* prevents image from overflowing container */
