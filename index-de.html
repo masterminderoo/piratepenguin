@@ -57,8 +57,8 @@
 
   <section class="section">
     <div class="language-switcher">
-    <a href="index.html"><img src="./flag-uk.png" alt="English" width="48" height=auto class="flag-icon selected"></a>
-    <a href="index-de.html"><img src="./flag-de.png" alt="Deutsch" width="48" height=auto class="flag-icon"></a>
+    <a href="index.html"><img src="./flag-uk.png" alt="English" width="48" height=auto class="flag-icon"></a>
+    <a href="index-de.html"><img src="./flag-de.png" alt="Deutsch" width="48" height=auto class="flag-icon selected"></a>
     </div>
     <h2>Was dich erwartet</h2>
     <p>Ich bin nicht dein Leiter - Ich bin dein Captain! Pirate Penguin ist ein <strong>Detektivspiel durch Budapest</strong>, bei dem du sowohl die Stadt selbst
@@ -103,7 +103,7 @@
     </div>
     <div class="gallery-item" onclick="updateDetails('tour3')">
       <img src="./piratepenguboat.jpg" alt="Hidden Gems" style="width: 280px; height: auto;">
-      <div class="overlay">Private Fahrten</div>
+      <div class="overlay">Privates Abenteuer</div>
     </div>
   </div>
 </section>
@@ -225,28 +225,29 @@
   <script>
   const tours = {
     tour1: {
-      title: "Food & Loot",
-      description: "Claim the treasure buried in the 5th District and feast on food-related riddles! Eating between riddles is optional.",
-      price: "8.000 HUF (20€) per person",
-      duration: "2.5 hours",
-      language: "Szent Istvan Ter 1 (in front of the Basilika)",
-      ideal: "First Time Players, Food Enjoyers, Individuals, Small Friend Groups"
+      title: "Schatz & Schmaus",
+      description: "Lüfte das Geheimnis der Sternenjäger im 5. Bezirk und knacke rätselhafte Hinweise rund um die Donau! 
+        Das Essen zwischen den Rätseln ist optional – aber sehr empfehlenswert.",
+      price: "8.000 HUF (20€) pro Person",
+      duration: "2,5 Stunden",
+      language: "Szent Istvan Ter 1 (vor der Basilika)",
+      ideal: "Schatzsucher, Essensliebhaber, Einzelpersonen, Kleinere Freundesgruppen"
     },
     tour2: {
-      title: "Games & Plunder",
-      description: "Solve various puzzles in the 6th District and find the treasure in a board game bar! Board game tickets are included in the price.",
-      price: "10.000 HUF (25€) per person",
-      duration: "3 hours",
-      language: "Andrassy Utca 22 (in front of the Opera)",
-      ideal: "Board Game Fans, Video Game Fans, People that like to go off the beaten path"
+      title: "Zocken & Plündern",
+      description: "Rätsle dich durch den 6. Bezirk und finde den Schatz der Brettspielbar! Spieltickets für die Bar sind im Preis inbegriffen.",
+      price: "10.000 HUF (25€) pro Person",
+      duration: "3 Stunden",
+      language: "Andrassy Utca 22 (vor der Oper)",
+      ideal: "Brettspielfans, Videospielfans, Leute die gerne unbekanntere Gebiete erforschen"
     },
     tour3: {
-      title: "Private Voyage",
-      description: "Do you want to just be among yourselves, without anyone else joining? Or do you want the Captain to visit your home so he can turn your birthday into a social deduction party? Well, you're in luck! Get a tailored experience just for you with this private package.",
-      price: "Individual pricing depending on duration and group size",
-      duration: "You decide!",
-      language: "5th, 6th, 7th, 8th or 13th District",
-      ideal: "Families, Big Friend Groups, People who wait until the last moment to plan their party (looking at you Michael)"
+      title: "Privates Abenteuer",
+      description: "Nur mit deiner Crew unterwegs sein – ganz ohne fremde Matrosen? Oder willst du, dass der Käpt’n zu dir nach Hause kommt und deine Geburtstagsparty in ein Social-Deduction-Fest verwandelt? Aye! Mit diesem privaten Paket bekommst du ein maßgeschneidertes Erlebnis nur für dich.",
+      price: "Individueller Preis je nach Dauer, Anlass, und Gruppengröße",
+      duration: "Du entscheidest!",
+      language: "5., 6., 7., 8., oder 13. Bezirk",
+      ideal: "Familien, große Freundesgruppen, Leute die ihre Party immer auf den letzten Drücker planen (ja, Michael, du bist gemeint)"
     }
   };
 
@@ -260,10 +261,10 @@ function updateDetails(tour) {
   details.innerHTML = `
     <h2>${tours[tour].title}</h2>
     <p>${tours[tour].description}</p>
-    <p><strong>Price:</strong> ${tours[tour].price}</p>
-    <p><strong>Duration:</strong> ${tours[tour].duration}</p>
-    <p><strong>Location:</strong> ${tours[tour].language}</p>
-    <p><strong>Ideal For:</strong> ${tours[tour].ideal}</p>
+    <p><strong>Preis:</strong> ${tours[tour].price}</p>
+    <p><strong>Dauer:</strong> ${tours[tour].duration}</p>
+    <p><strong>Treffpunkt:</strong> ${tours[tour].language}</p>
+    <p><strong>Am besten geeignet für:</strong> ${tours[tour].ideal}</p>
     
     
   `;
