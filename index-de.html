@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pirate Penguin Budapest</title>
+
+  <script>
+  (function() {
+    // Prüfen, ob der automatische Check schon durchgeführt wurde
+    if (!sessionStorage.getItem('firstVisitDone')) {
+      const userLang = navigator.language || navigator.userLanguage;
+      if(userLang && userLang.toLowerCase().startsWith('de')) {
+        // Weiterleiten auf Deutsch, wenn Browser-Sprache deutsch ist
+        if(!window.location.pathname.includes('index-de.html')) {
+          // Automatischen Check als erledigt markieren
+          sessionStorage.setItem('firstVisitDone', 'true');
+          window.location.href = 'index-de.html' + window.location.search;
+          return; // wichtig, um weiteren Code zu stoppen
+        }
+      }
+      // Automatischen Check als erledigt markieren, wenn keine Weiterleitung nötig
+      sessionStorage.setItem('firstVisitDone', 'true');
+    }
+  })();
+</script>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #fefefe; color: white; }
+    header { background: #222; color: white; padding: 1.5rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.5rem 0 0; font-size: 1.2rem; }
+    .section { padding: 2rem 1rem; max-width: 800px; margin: auto; }
+    .highlight { background: #f4f4f4; border-left: 5px solid #222; padding: 1rem; margin: 1rem 0; }
+    .tour-info td { padding: 0.5rem; }
+    .cta-button { background: #222; color: white; padding: 1rem 2rem; border: none; font-size: 1rem; cursor: pointer; display: block; margin: 2rem auto; text-decoration: none; text-align: center; width: fit-content; border-radius: 5px; }
+    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #666; }
+    .calendar-container { text-align: center; }
+    .calendar { border-collapse: collapse; margin: 0 auto; font-size: 1rem; }
+    .calendar th, .calendar td { width: 30px; height: 30px; text-align: center; border: 1px solid #ddd; }
+    .calendar th { background-color: #222; color: white; }
+    .calendar td { cursor: pointer; padding: 10px; }
+    .calendar td:hover { background-color: #f4f4f4; }
+    .language-switcher {display: flex; gap: 35px; justify-content: center; align-items: center;}
+    .flag-icon {  border-radius: 4px;}
+    .flag-icon.selected { border:2px solid gold; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="./piratepengulogosmall.png" alt="Pirate Penguin Logo" style="width: 350px; height: auto;" />
+    <h1>Stadabenteuer mit verdeckten Rollen</h1>
+    <p>Entdecke Budapests verborgenen Schatz</p>
+  </header>
+
+      <link rel="stylesheet" href="css/style.css" />
+
+  <section class="section">
+    <div class="language-switcher">
+    <a href="index.html"><img src="./flag-uk.png" alt="English" width="48" height=auto class="flag-icon selected"></a>
+    <a href="index-de.html"><img src="./flag-de.png" alt="Deutsch" width="48" height=auto class="flag-icon"></a>
+    </div>
+    <h2>Was dich erwartet</h2>
+    <p>Ich bin nicht dein Leiter - Ich bin dein Captain! Pirate Penguin ist ein <strong>Detektivspiel durch Budapest</strong>, bei dem du sowohl die Stadt selbst
+      als auch deine Mitspieler unter die Lupe nehmen musst. Aber Vorsicht! Nicht jedes Crewmitglied ist dir wohlgesonnen...</p>
+    <p>Du und deine Mitabenteurer bekommen jeweils eine <strong>verdeckte Rolle</strong> mit seltsamen Regeln und geheimen Zielen. 
+    Jetzt liegt es an euch herauszufinden, wer sich merkwürdig verhält – und warum. 
+    Schafft ihr es, die Rätsel der Schatzsuche zu lösen, ohne euch von den anderen Rollen ablenken zu lassen?</p>
+    <p>Egal ob du <strong>das Rätsel lösen</strong>, <strong>das Chaos genießen</strong> oder einfach nur <strong>deine Freunde in den Wahnsinn treiben</strong> 
+      willst: Pirate Penguin ist ein Erlebnis, das du so schnell nicht vergessen wirst!</p>
+    <div class="highlight">
+      <ul>
+        <p>⚓ Keine trockenen Vorträge. Kein langweiliger Geschichtsunterricht. Nur pures Abenteuer, geleitet von einem erfahrenen Pinguinkapitän</p>
+        <p>🐧 Löse Rätsel, knacke Geheimcodes, und entdecke versteckte Orte in ganz Budapest</p>
+        <p>🏴‍☠️ Überliste Verräter, enttarne geheime Rollen, und schnapp deinen Mitspielern den Schatz vor der Nase weg</p>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Spione an Bord?</h2>
+    <img src="./piratepenguinroles.jpg" alt="City Highlights" style="width: 800px; height: auto;">
+    <p>Redet Daniel gerade mit einem Laternenpfosten, weil er <strong>Der verfluchte Matrose</strong> ist, oder ist er einfach nur ein wenig seltsam? 
+      Erzählt Maria alles in einem überdramatischen Tonfall, weil sie <strong>Die Geschichtenerzählerin</strong> ist, oder redet sie einfach immer so? 
+      Du wirst es erst bei der großen Auflösung am Ende erfahren, aber so oder so wird es zum Schreien komisch!</p> 
+    <p>Kurz vor Spielbeginn wählt der Kapitän eine Rolle für dich aus einer Liste von <strong>über 50 Rollen</strong> aus – abgestimmt auf die anderen Rollen, 
+    die er für diese Session geplant hat. Du bekommst dann eine E-Mail mit deiner Rollenkarte, einer kurzen Erklärung zu deinen Fähigkeiten/Zielen 
+    und ein paar Tipps und Tricks, wie du deine Rolle am besten spielst.</p>
+    <img src="./ppromo.jpg" alt="City Highlights" style="width: 500px; height: auto; border-radius: 5px;">
+  </section>
+
+
+ <section class="section">
+  <h2>Choose Your Cruise</h2>
+  <div class="gallery">
+    <div class="gallery-item" onclick="updateDetails('tour1')">
+      <img src="./piratepengulangos.jpg" alt="City Highlights" style="width: 280px; height: auto;">
+      <div class="overlay">Food & Loot</div>
+    </div>
+    <div class="gallery-item" onclick="updateDetails('tour2')">
+      <img src="./piratepenguboardgame.jpg" alt="Food & Culture" style="width: 280px; height: auto;">
+      <div class="overlay">Games & Plunder</div>
+    </div>
+    <div class="gallery-item" onclick="updateDetails('tour3')">
+      <img src="./piratepenguboat.jpg" alt="Hidden Gems" style="width: 280px; height: auto;">
+      <div class="overlay">Private Voyage</div>
+    </div>
+  </div>
+</section>
+
+<!-- Dynamic Details Section -->
+<section class="section">
+  <h2></h2>
+  <div id="details">
+    <p>Click on a picture to see details.</p>
+  </div>
+    <button id="backButton" onclick="resetDetails()" style="display: none;">Back to Events</button>
+</section>
+
+
+  <section class="section">
+    <h2>All Aboard!</h2>
+    <p>Select a date to buy your ticket:</p>
+    <div class="calendar-container">
+      <table class="calendar">
+        <thead>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <p>Select a date above to reserve your spot!</p>
+    </div>
+  </section>
+
+<script>
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+    return date.toLocaleDateString('en-GB', options).replace(/\//g, '.');
+  }
+
+  async function fetchBookings() {
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbwRqxDE-WZfHqEPa80-taNvl4Hmix7BKN777hpZ8X2qbDUgXKNc8JrDAofNHZQBpGoz/exec';
+
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      const calendar = document.querySelector('.calendar');
+
+      // Create table headers
+      const headers = `
+        <thead>
+          <tr>
+            <th class="header-gold">Date</th>
+            <th class="header-gold">Script</th>
+            <th class="header-gold">Start Time</th>
+            <th class="header-gold">Spots Left</th>
+          </tr>
+        </thead>`;
+      calendar.innerHTML = headers;
+
+      // Populate rows
+      data.forEach((row, index) => {
+        const formattedDate = formatDate(row.date);
+        const isFull = parseInt(row.spotsLeft) === 0;
+        
+        // Inline styling for the cell
+        const spotsLeftStyle = isFull ? 'style="background-color: #B22222; color: white; font-weight: bold;"' : '';
+
+        // Append row
+        calendar.innerHTML += `
+          <tr style="background-color: ${index % 2 === 0 ? '#8B4513' : '#A0522D'};">
+            <td>${formattedDate}</td>
+            <td>${row.tourName}</td>
+            <td>${row.participants}</td>
+            <td ${spotsLeftStyle}>${row.spotsLeft}</td>
+          </tr>`;
+      });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  // Call the function to fetch data when the page loads
+  window.onload = fetchBookings;
+</script>
+ 
+  <section class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="highlight">
+      <ul>
+  <p><strong>Is prior experience with treasure hunts or social deduction games required?</strong><br>
+      Not at all! Whether you’re a seasoned pirate or a sailor new to the game, 
+      everyone is welcome. I’ll explain the rules clearly before we start and you can always ask me questions during the game.</p>
+  <p><strong>What if I don't like the role I get?</strong><br>
+  I may be a pirate who mutinied another captain once (the sharks had a feast that day), but I am not heartless. 
+  If you don't like your role, please send me an email <strong>before the game starts</strong>, and we will find a solution together 
+    (in most cases, you will get another role).</p>
+
+  <p><strong>What if it's raining on the day of the game? Will the game be cancelled / postponed?</strong><br>
+  Arrrr, what do you take me for, a landlubber?! A real pirate navigates his ship through the wildest of storms, so we will play the game just as planned 
+    even if there's a little rain. That said, if it's raining so much that Noah starts building an Ark again, I will cancel the event and fully refund 
+    every participant.</p>
+
+  <p><strong>What currencies do you accept?</strong><br>
+  You can pay in either Euro(€) or Hungarian Forint(HUF).</p>
+
+  <p><strong>Can I bring my own food and drinks?</strong><br>
+  Yes, of course! While we will be in an area with many options to buy food and drinks, you are free to bring your own. 
+    Just keep in mind that the Hungarian law forbids the consumption of alcoholic beverages outside, so please only bring non-alcoholic drinks.</p>
+
+  <p><strong>What language will be spoken during the event?</strong><br>
+  Most of the events are in English, but 1-2 times a month I am also hosting a German session! If (German) or (Deutsch) is written next to the event in the 
+    calendar, the event will be in German. If not, the event will be in English.</p>
+      </ul>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Pirate Penguin Budapest</p>
+    <a href="./terms-of-service.html">Terms of Service</a> | 
+    <a href="./privacy-policy.html">Privacy Policy</a>
+  </footer>
+  
+  <script>
+  const tours = {
+    tour1: {
+      title: "Food & Loot",
+      description: "Claim the treasure buried in the 5th District and feast on food-related riddles! Eating between riddles is optional.",
+      price: "8.000 HUF (20€) per person",
+      duration: "2.5 hours",
+      language: "Szent Istvan Ter 1 (in front of the Basilika)",
+      ideal: "First Time Players, Food Enjoyers, Individuals, Small Friend Groups"
+    },
+    tour2: {
+      title: "Games & Plunder",
+      description: "Solve various puzzles in the 6th District and find the treasure in a board game bar! Board game tickets are included in the price.",
+      price: "10.000 HUF (25€) per person",
+      duration: "3 hours",
+      language: "Andrassy Utca 22 (in front of the Opera)",
+      ideal: "Board Game Fans, Video Game Fans, People that like to go off the beaten path"
+    },
+    tour3: {
+      title: "Private Voyage",
+      description: "Do you want to just be among yourselves, without anyone else joining? Or do you want the Captain to visit your home so he can turn your birthday into a social deduction party? Well, you're in luck! Get a tailored experience just for you with this private package.",
+      price: "Individual pricing depending on duration and group size",
+      duration: "You decide!",
+      language: "5th, 6th, 7th, 8th or 13th District",
+      ideal: "Families, Big Friend Groups, People who wait until the last moment to plan their party (looking at you Michael)"
+    }
+  };
+
+ // Function to update details dynamically and scroll to the details section
+function updateDetails(tour) {
+  const details = document.getElementById("details");
+  const backButton = document.getElementById("backButton");
+  const detailsSection = document.querySelector('.section:nth-of-type(4)'); // The section containing details
+  
+  // Change content dynamically
+  details.innerHTML = `
+    <h2>${tours[tour].title}</h2>
+    <p>${tours[tour].description}</p>
+    <p><strong>Price:</strong> ${tours[tour].price}</p>
+    <p><strong>Duration:</strong> ${tours[tour].duration}</p>
+    <p><strong>Location:</strong> ${tours[tour].language}</p>
+    <p><strong>Ideal For:</strong> ${tours[tour].ideal}</p>
+    
+    
+  `;
+  
+  // Show details with smooth fade-in
+  details.classList.add("show");
+
+  // Show the back button
+  backButton.style.display = "inline-block";
+
+  // Scroll to the details section with smooth scrolling
+  detailsSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Function to reset details and hide them, then scroll back to the tours gallery
+function resetDetails() {
+  const details = document.getElementById("details");
+  const backButton = document.getElementById("backButton");
+  const gallerySection = document.querySelector('.section:nth-of-type(3)'); // The section containing the gallery
+  
+  // Reset content to default message
+  details.innerHTML = `<p>Select a tour to see the details.</p>`;
+  
+  // Hide details and back button with a fade-out effect
+  details.classList.remove("show");
+  backButton.style.display = "none";
+
+  // Scroll back to the gallery section with smooth scrolling
+  gallerySection.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
