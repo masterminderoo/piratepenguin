@@ -21,7 +21,8 @@
     .calendar th { background-color: #222; color: white; }
     .calendar td { cursor: pointer; padding: 10px; }
     .calendar td:hover { background-color: #f4f4f4; }
-    .language-switcher img { display: inline-block; vertical-align: middle; gap: 10px; align-items: center;}
+    .flag-icon { display: inline-block; vertical-align: middle; gap: 20px; align-items: center;}
+    .flag-icon.selected { border:2px solid black; }
   </style>
 </head>
 <body>
@@ -35,8 +36,8 @@
 
   <section class="section">
     <div class="language-switcher">
-    <a href="index.html"><img src="./flag-uk.png" alt="English" width="48" height=auto></a>
-    <a href="index-de.html"><img src="./flag-de.png" alt="Deutsch" width="48" height=auto></a>
+    <a href="index.html"><img src="./flag-uk.png" alt="English" width="48" height=auto class="flag-icon selected"></a>
+    <a href="index-de.html"><img src="./flag-de.png" alt="Deutsch" width="48" height=auto class="flag-icon"></a>
     </div>
     <h2>What To Expect</h2>
     <p>I'm not your guide - I'm your Captain! Pirate Penguin is a <strong>live-action hidden role game</strong> across Budapest's wildest districts,
