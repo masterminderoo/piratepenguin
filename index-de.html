@@ -86,24 +86,24 @@
     <p>Kurz vor Spielbeginn wählt der Kapitän eine Rolle für dich aus einer Liste von <strong>über 50 Rollen</strong> aus – abgestimmt auf die anderen Rollen, 
     die er für diese Session geplant hat. Du bekommst dann eine E-Mail mit deiner Rollenkarte, einer kurzen Erklärung zu deinen Fähigkeiten/Zielen 
     und ein paar Tipps und Tricks, wie du deine Rolle am besten spielst.</p>
-    <img src="./ppromo.jpg" alt="City Highlights" style="width: 500px; height: auto; border-radius: 5px;">
+    <img src="./ppromodeutsch.jpg" alt="City Highlights" style="width: 500px; height: auto; border-radius: 5px;">
   </section>
 
 
  <section class="section">
-  <h2>Choose Your Cruise</h2>
+  <h2>Wähle dein Abenteuer!</h2>
   <div class="gallery">
     <div class="gallery-item" onclick="updateDetails('tour1')">
       <img src="./piratepengulangos.jpg" alt="City Highlights" style="width: 280px; height: auto;">
-      <div class="overlay">Food & Loot</div>
+      <div class="overlay">Schatz & Schmaus</div>
     </div>
     <div class="gallery-item" onclick="updateDetails('tour2')">
       <img src="./piratepenguboardgame.jpg" alt="Food & Culture" style="width: 280px; height: auto;">
-      <div class="overlay">Games & Plunder</div>
+      <div class="overlay">Zocken & Plündern</div>
     </div>
     <div class="gallery-item" onclick="updateDetails('tour3')">
       <img src="./piratepenguboat.jpg" alt="Hidden Gems" style="width: 280px; height: auto;">
-      <div class="overlay">Private Voyage</div>
+      <div class="overlay">Private Fahrten</div>
     </div>
   </div>
 </section>
@@ -112,15 +112,15 @@
 <section class="section">
   <h2></h2>
   <div id="details">
-    <p>Click on a picture to see details.</p>
+    <p>Klicke auf ein Bild, um Details zu sehen.</p>
   </div>
     <button id="backButton" onclick="resetDetails()" style="display: none;">Back to Events</button>
 </section>
 
 
   <section class="section">
-    <h2>All Aboard!</h2>
-    <p>Select a date to buy your ticket:</p>
+    <h2>Anker lichten!</h2>
+    <p>Wähle ein Datum, um dein Ticket zu kaufen:</p>
     <div class="calendar-container">
       <table class="calendar">
         <thead>
@@ -128,7 +128,7 @@
         <tbody>
         </tbody>
       </table>
-      <p>Select a date above to reserve your spot!</p>
+      <p>Wähle ein Datum oben, um deinen Platz zu reservieren!</p>
     </div>
   </section>
 
@@ -151,10 +151,10 @@
       const headers = `
         <thead>
           <tr>
-            <th class="header-gold">Date</th>
-            <th class="header-gold">Script</th>
-            <th class="header-gold">Start Time</th>
-            <th class="header-gold">Spots Left</th>
+            <th class="header-gold">Datum</th>
+            <th class="header-gold">Skript</th>
+            <th class="header-gold">Startzeit</th>
+            <th class="header-gold">Freie Plätze</th>
           </tr>
         </thead>`;
       calendar.innerHTML = headers;
@@ -186,40 +186,40 @@
 </script>
  
   <section class="section">
-    <h2>Frequently Asked Questions</h2>
+    <h2>Fragen und Antworten</h2>
     <div class="highlight">
       <ul>
-  <p><strong>Is prior experience with treasure hunts or social deduction games required?</strong><br>
-      Not at all! Whether you’re a seasoned pirate or a sailor new to the game, 
-      everyone is welcome. I’ll explain the rules clearly before we start and you can always ask me questions during the game.</p>
-  <p><strong>What if I don't like the role I get?</strong><br>
-  I may be a pirate who mutinied another captain once (the sharks had a feast that day), but I am not heartless. 
-  If you don't like your role, please send me an email <strong>before the game starts</strong>, and we will find a solution together 
-    (in most cases, you will get another role).</p>
+  <p><strong>Benötige ich Vorkenntnisse in Schatzsuchen oder Social-Deduction-Spielen?</strong><br>
+      Überhaupt nicht! Egal ob erfahrener Freibeuter oder frischer Matrose, alle sind willkommen.
+    Ich erkläre die Regeln ausführlich vor Spielbeginn, und während des Spiels kannst du mir jederzeit Fragen stellen.</p>
+  <p><strong>Was wenn mir meine Rolle nicht gefällt?</strong><br>
+  Ich mag zwar ein Pirat sein, der einst seinen eigenen Kapitän meuterte (die Haie hatten an dem Tag ein Festmahl), aber herzlos bin ich nicht. 
+    Falls du mit deiner Rolle unzufrieden bist, schick mir bitte <strong>vor Spielbeginn</strong> eine E-Mail –
+    wir finden gemeinsam eine Lösung (in den meisten Fällen bekommst du einfach eine neue Rolle).</p>
 
-  <p><strong>What if it's raining on the day of the game? Will the game be cancelled / postponed?</strong><br>
-  Arrrr, what do you take me for, a landlubber?! A real pirate navigates his ship through the wildest of storms, so we will play the game just as planned 
-    even if there's a little rain. That said, if it's raining so much that Noah starts building an Ark again, I will cancel the event and fully refund 
-    every participant.</p>
+  <p><strong>Was passiert, wenn es am Spieltag regnet? Wird das Event abgesagt oder verschoben?</strong><br>
+  Arrrr, hältst du mich etwa für eine Landratte?! Ein wahrer Pirat trotzt jedem Sturm, also werden wir das Spiel wie geplant durchziehen, selbst wenn es 
+    ein bisschen regnet. Sollte es allerdings so heftig in Strömen gießen, dass Noah wieder eine Arche bauen muss, werde ich das Event absagen und allen
+    Teilnehmern den vollen Preis zurückerstatten.
 
-  <p><strong>What currencies do you accept?</strong><br>
-  You can pay in either Euro(€) or Hungarian Forint(HUF).</p>
+  <p><strong>In welchen Währungen kann ich bezahlen?</strong><br>
+  Du kannst in Euro(€) oder Forint(HUF) zahlen.</p>
 
-  <p><strong>Can I bring my own food and drinks?</strong><br>
-  Yes, of course! While we will be in an area with many options to buy food and drinks, you are free to bring your own. 
-    Just keep in mind that the Hungarian law forbids the consumption of alcoholic beverages outside, so please only bring non-alcoholic drinks.</p>
+  <p><strong>Darf ich eigenes Essen und Trinken mitbringen?</strong><br>
+    Na klar! Auch wenn es unterwegs viele Möglichkeiten gibt, etwas zu kaufen, kannst du gerne eigene Snacks und Getränke mitbringen. 
+    Bitte beachte aber, dass laut ungarischem Gesetz Alkohol im öffentlichen Raum verboten ist, also nimm nur alkoholfreie Getränke mit.</p>
 
-  <p><strong>What language will be spoken during the event?</strong><br>
-  Most of the events are in English, but 1-2 times a month I am also hosting a German session! If (German) or (Deutsch) is written next to the event in the 
-    calendar, the event will be in German. If not, the event will be in English.</p>
+  <p><strong>In welcher Sprache findet das Event statt?</strong><br>
+    Die meisten Events finden auf Englisch statt, aber etwa 1–2 Mal pro Monat biete ich auch eine deutsche Runde an! 
+    Wenn im Kalender beim Event (German) oder (Deutsch) steht, ist das jeweilige Event auf Deutsch. Wenn nichts dabeisteht, ist es auf Englisch.</p>
       </ul>
     </div>
   </section>
   
   <footer>
     <p>&copy; 2025 Pirate Penguin Budapest</p>
-    <a href="./terms-of-service.html">Terms of Service</a> | 
-    <a href="./privacy-policy.html">Privacy Policy</a>
+    <a href="./terms-of-service.html">Allgemeine Geschäftsbedingungen</a> | 
+    <a href="./privacy-policy.html">Datenschutzerklärung</a>
   </footer>
   
   <script>
