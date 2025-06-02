@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pirate Penguin Budapest</title>
 
+  <script>
+  (function() {
+    // Prüfen, ob der automatische Check schon durchgeführt wurde
+    if (!localStorage.getItem('firstVisitDone')) {
+      const userLang = navigator.language || navigator.userLanguage;
+      if(userLang && userLang.toLowerCase().startsWith('de')) {
+        // Weiterleiten auf Deutsch, wenn Browser-Sprache deutsch ist
+        if(!window.location.pathname.includes('index-de.html')) {
+          // Automatischen Check als erledigt markieren
+          localStorage.setItem('firstVisitDone', 'true');
+          window.location.href = 'index-de.html' + window.location.search;
+          return; // wichtig, um weiteren Code zu stoppen
+        }
+      }
+      // Automatischen Check als erledigt markieren, wenn keine Weiterleitung nötig
+      localStorage.setItem('firstVisitDone', 'true');
+    }
+  })();
+</script>
+
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #fefefe; color: white; }
     header { background: #222; color: white; padding: 1.5rem; text-align: center; }
