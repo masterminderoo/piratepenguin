@@ -8,19 +8,19 @@
   <script>
   (function() {
     // Prüfen, ob der automatische Check schon durchgeführt wurde
-    if (!localStorage.getItem('firstVisitDone')) {
+    if (!sessionStorage.getItem('firstVisitDone')) {
       const userLang = navigator.language || navigator.userLanguage;
       if(userLang && userLang.toLowerCase().startsWith('de')) {
         // Weiterleiten auf Deutsch, wenn Browser-Sprache deutsch ist
         if(!window.location.pathname.includes('index-de.html')) {
           // Automatischen Check als erledigt markieren
-          localStorage.setItem('firstVisitDone', 'true');
+          sessionStorage.setItem('firstVisitDone', 'true');
           window.location.href = 'index-de.html' + window.location.search;
           return; // wichtig, um weiteren Code zu stoppen
         }
       }
       // Automatischen Check als erledigt markieren, wenn keine Weiterleitung nötig
-      localStorage.setItem('firstVisitDone', 'true');
+      sessionStorage.setItem('firstVisitDone', 'true');
     }
   })();
 </script>
@@ -111,9 +111,9 @@
 <section class="section">
   <h2></h2>
   <div id="details">
-    <p>Select a tour to see the details.</p>
+    <p>Click on a picture to see details.</p>
   </div>
-    <button id="backButton" onclick="resetDetails()" style="display: none;">Back to Tours</button>
+    <button id="backButton" onclick="resetDetails()" style="display: none;">Back to Events</button>
 </section>
 
 
@@ -184,6 +184,14 @@
   window.onload = fetchBookings;
 </script>
 
+
+    <section class="section">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>Is prior experience with treasure hunts or social deduction games required?</strong><br>
+    Not at all! Whether you’re a seasoned pirate or a sailor new to the game, 
+      everyone is welcome. I’ll explain the rules clearly before we start and you can always ask me questions during the game.</p> 
+  </section>
+  
 
   <footer>
     <p>&copy; 2025 Pirate Penguin Budapest</p>
