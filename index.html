@@ -212,6 +212,8 @@
     return date.toLocaleDateString('en-GB', options).replace(/\//g, '.');
   }
 
+  let expandedRow = null;
+
   async function fetchBookings() {
     const apiUrl = 'https://script.google.com/macros/s/AKfycbwRqxDE-WZfHqEPa80-taNvl4Hmix7BKN777hpZ8X2qbDUgXKNc8JrDAofNHZQBpGoz/exec';
 
@@ -229,34 +231,61 @@
             <th class="header-gold">Start Time</th>
             <th class="header-gold">Spots Left</th>
           </tr>
-        </thead>`;
+        </thead>
+        <tbody></tbody>`;
       calendar.innerHTML = headers;
 
-      // Populate rows
+      const tbody = calendar.querySelector('tbody');
+
       data.forEach((row, index) => {
         const formattedDate = formatDate(row.date);
         const isFull = parseInt(row.spotsLeft) === 0;
-        
-        // Inline styling for the cell
         const spotsLeftStyle = isFull ? 'style="background-color: #B22222; color: white; font-weight: bold;"' : '';
+        const bgColor = index % 2 === 0 ? '#8B4513' : '#A0522D';
 
-        // Append row
-        calendar.innerHTML += `
-          <tr style="background-color: ${index % 2 === 0 ? '#8B4513' : '#A0522D'};">
-            <td>${formattedDate}</td>
-            <td>${row.tourName}</td>
-            <td>${row.participants}</td>
-            <td ${spotsLeftStyle}>${row.spotsLeft}</td>
-          </tr>`;
+        const tr = document.createElement('tr');
+        tr.style.backgroundColor = bgColor;
+        tr.innerHTML = `
+          <td>${formattedDate}</td>
+          <td>${row.tourName}</td>
+          <td>${row.participants}</td>
+          <td ${spotsLeftStyle}>${row.spotsLeft}</td>
+        `;
+
+        tr.addEventListener('click', () => {
+          // Entferne vorheriges Infofeld, falls vorhanden
+          if (expandedRow && expandedRow.parentNode) {
+            expandedRow.parentNode.removeChild(expandedRow);
+            if (expandedRow.previousSibling === tr) {
+              expandedRow = null;
+              return; // Toggle verhalten: schließen, wenn erneut geklickt
+            }
+          }
+
+          // Neues Infofeld einfügen
+          const infoRow = document.createElement('tr');
+          infoRow.innerHTML = `
+            <td colspan="4" style="background: #333; color: white; padding: 1rem; text-align: left;">
+              <strong>Tour:</strong> ${row.tourName}<br>
+              <strong>Start Time:</strong> ${row.participants}<br>
+              <strong>Available Spots:</strong> ${row.spotsLeft}<br>
+              <strong>Book via Email:</strong> <a href="mailto:piratepenguinbudapest@gmail.com?subject=Booking%20for%20${encodeURIComponent(formattedDate)}" style="color: gold;">piratepenguinbudapest@gmail.com</a>
+            </td>
+          `;
+          tbody.insertBefore(infoRow, tr.nextSibling);
+          expandedRow = infoRow;
+        });
+
+        tbody.appendChild(tr);
       });
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   }
 
-  // Call the function to fetch data when the page loads
   window.onload = fetchBookings;
 </script>
+
  
   <section class="section">
     <h2>Frequently Asked Questions</h2>
