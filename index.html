@@ -201,28 +201,35 @@
           <td ${spotsLeftStyle}>${row.spotsLeft}</td>
         `;
 
-        tr.addEventListener('click', () => {
-          // Entferne vorheriges Infofeld, falls vorhanden
-          if (expandedRow && expandedRow.parentNode) {
-            expandedRow.parentNode.removeChild(expandedRow);
-            if (expandedRow.previousSibling === tr) {
-              expandedRow = null;
-              return; // Toggle verhalten: schließen, wenn erneut geklickt
-            }
-          }
+tr.addEventListener('click', () => {
+  // Vorherige erweiterte Zeile oder Formular ausblenden
+  if (expandedRow && expandedRow.parentNode) {
+    expandedRow.parentNode.removeChild(expandedRow);
+    if (expandedRow.previousSibling === tr) {
+      expandedRow = null;
+      // Formular ausblenden, wenn dasselbe Datum nochmal geklickt wird
+      const bookingForm = document.getElementById('booking-form');
+      if (bookingForm) bookingForm.style.display = 'none';
+      return;
+    }
+  }
 
-          // Neues Infofeld einfügen
-          const infoRow = document.createElement('tr');
-          infoRow.innerHTML = `
-            <td colspan="4" style="background: #333; color: white; padding: 1rem; text-align: left;">
-              <strong>Tour:</strong> ${row.tourName}<br>
-              <strong>Start Time:</strong> ${row.participants}<br>
-              <strong>Available Spots:</strong> ${row.spotsLeft}<br>
-              <strong>Book via Email:</strong> <a href="mailto:piratepenguinbudapest@gmail.com?subject=Booking%20for%20${encodeURIComponent(formattedDate)}" style="color: gold;">piratepenguinbudapest@gmail.com</a>
-            </td>
-          `;
-          tbody.insertBefore(infoRow, tr.nextSibling);
-          expandedRow = infoRow;
+  // Formular anzeigen und mit Datum füllen
+  const bookingForm = document.getElementById('booking-form');
+  if (bookingForm) {
+    bookingForm.style.display = 'block';
+
+    // Datum formatieren und anzeigen
+    const formattedDate = formatDate(row.date);
+    const selectedDateEl = document.getElementById('selected-date');
+    if (selectedDateEl) selectedDateEl.textContent = `You selected: ${formattedDate}`;
+
+    const formDateInput = document.getElementById('form-date');
+    if (formDateInput) formDateInput.value = row.date; // rohes Datum ins Hidden-Feld
+
+    // Optional: scroll zum Formular
+    bookingForm.scrolltoView({ behavior: 'smooth' });
+  }
         });
 
         tbody.appendChild(tr);
