@@ -226,6 +226,7 @@ tr.addEventListener('click', () => {
   const bookingForm = document.getElementById('booking-form');
   if (bookingForm) {
     bookingForm.style.display = 'block';
+    updatePriceSummary();
 
     // Datum formatieren und anzeigen
     const formattedDate = formatDate(row.date);
