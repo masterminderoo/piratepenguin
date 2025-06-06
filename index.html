@@ -262,8 +262,8 @@ tr.addEventListener('click', () => {
   const total = basePrice + cashFee;
 
   const priceHTML = `
-    <div>Base price: ${numParticipants} × 8000 Ft = <strong>${basePrice} Ft</strong></div>
-    ${cashSelected ? `<div>Cash reservation fee: <strong>+1000 Ft</strong></div>` : ''}
+    <div>Base price: 8000 Ft x ${numParticipants} = <strong>${basePrice} Ft</strong></div>
+    ${cashSelected ? `<div>Reservation fee: <strong>+1000 Ft</strong></div>` : ''}
     <div style="margin-top: 5px;">Total: <strong>${total} Ft</strong></div>
   `;
 
