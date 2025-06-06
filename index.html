@@ -266,6 +266,20 @@ tr.addEventListener('click', () => {
   document.getElementById('priceSummary').innerHTML = priceHTML;
 }
 
+  // Preis automatisch aktualisieren, wenn Teilnehmerzahl oder Checkbox geändert wird
+document.addEventListener('DOMContentLoaded', () => {
+  const participantsInput = document.getElementById('participants');
+  const cashCheckbox = document.getElementById('cashOption');
+
+  if (participantsInput) {
+    participantsInput.addEventListener('input', updatePriceSummary);
+  }
+
+  if (cashCheckbox) {
+    cashCheckbox.addEventListener('change', updatePriceSummary);
+  }
+});
+
 </script>
 
  
