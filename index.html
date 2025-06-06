@@ -284,6 +284,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+   const form = document.getElementById("booking-form");
+
+  form.addEventListener("submit", function(event) {
+    const cashOptionChecked = document.getElementById("cashOption").checked;
+    const participants = parseInt(document.getElementById("participants").value, 10);
+
+    // Nur wenn NICHT Barzahlung gewählt wurde, soll der Revolut-Link aufgehen
+    if (!cashOptionChecked) {
+      const revolutLinks = {
+        1: "https://revolut.me/your-link-for-1",
+        2: "https://revolut.me/your-link-for-2",
+        3: "https://revolut.me/your-link-for-3",
+        4: "https://revolut.me/your-link-for-4",
+        5: "https://revolut.me/your-link-for-5"
+      };
+
+      const payLink = revolutLinks[participants];
+      if (payLink) {
+        window.open(payLink, "_blank");
+      }
+    }
+
+    // Formular wird wie gewohnt weitergesendet
+  });
+
 </script>
 
  
