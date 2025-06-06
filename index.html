@@ -134,7 +134,7 @@
       </table>
     </div>
     <div id="booking-form" style="display: none; margin-top: 20px; background: #fff; color: black; padding: 20px; border-radius: 8px; max-width: 500px; margin-left: auto; margin-right: auto;">
-  <h2>Reserve Your Spot</h2>
+  <h3>Reserve Your Spot</h3>
   <h3 id="selected-date"></h3>
   <form action="https://formsubmit.co/captain@piratepenguinbudapest.com" method="POST">
     <input type="hidden" name="tour_date" id="form-date">
@@ -146,6 +146,32 @@
 
     <label for="participants">Number of participants:</label><br>
     <input type="number" id="participants" name="participants" min="1" max="10" required><br><br>
+
+    <label>
+    <input type="checkbox" id="cashOption" name="cashOption">
+    I want to pay in cash at the start of the event (+1000Ft/3€ reservation fee)
+    </label>
+
+    <div id="priceSummary" class="price-summary" style="margin-top: 15px; font-weight: bold;">
+    <!-- Dynamischer Preis wird hier eingefügt -->
+    </div>
+
+    function updatePriceSummary() {
+  const numParticipants = parseInt(document.getElementById('participants').value) || 1;
+  const cashSelected = document.getElementById('cashOption').checked;
+
+  const basePrice = numParticipants * 8000;
+  const cashFee = cashSelected ? 1000 : 0;
+  const total = basePrice + cashFee;
+
+  const priceHTML = `
+    <div>Base price: ${numParticipants} × 8000 Ft = <strong>${basePrice} Ft</strong></div>
+    ${cashSelected ? `<div>Cash reservation fee: <strong>+1000 Ft</strong></div>` : ''}
+    <div style="margin-top: 5px;">Total: <strong>${total} Ft</strong></div>
+  `;
+
+  document.getElementById('priceSummary').innerHTML = priceHTML;
+}
 
     <button type="submit" class="cta-button">Book Now</button>
   </form>
