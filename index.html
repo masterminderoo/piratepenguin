@@ -227,9 +227,7 @@ tr.addEventListener('click', () => {
     const formDateInput = document.getElementById('form-date');
     if (formDateInput) formDateInput.value = row.date; // rohes Datum ins Hidden-Feld
 
-setTimeout(() => {
-  bookingForm.scrolltoView({ behavior: 'smooth' });
-}, 100);
+    bookingForm.scrollIntoView({ behavior: 'smooth' });
   }
         });
 
