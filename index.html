@@ -156,23 +156,6 @@
     <!-- Dynamischer Preis wird hier eingefügt -->
     </div>
 
-    function updatePriceSummary() {
-  const numParticipants = parseInt(document.getElementById('participants').value) || 1;
-  const cashSelected = document.getElementById('cashOption').checked;
-
-  const basePrice = numParticipants * 8000;
-  const cashFee = cashSelected ? 1000 : 0;
-  const total = basePrice + cashFee;
-
-  const priceHTML = `
-    <div>Base price: ${numParticipants} × 8000 Ft = <strong>${basePrice} Ft</strong></div>
-    ${cashSelected ? `<div>Cash reservation fee: <strong>+1000 Ft</strong></div>` : ''}
-    <div style="margin-top: 5px;">Total: <strong>${total} Ft</strong></div>
-  `;
-
-  document.getElementById('priceSummary').innerHTML = priceHTML;
-}
-
     <button type="submit" class="cta-button">Book Now</button>
   </form>
 </div>
@@ -264,6 +247,24 @@ tr.addEventListener('click', () => {
   }
 
   window.onload = fetchBookings;
+
+      function updatePriceSummary() {
+  const numParticipants = parseInt(document.getElementById('participants').value) || 1;
+  const cashSelected = document.getElementById('cashOption').checked;
+
+  const basePrice = numParticipants * 8000;
+  const cashFee = cashSelected ? 1000 : 0;
+  const total = basePrice + cashFee;
+
+  const priceHTML = `
+    <div>Base price: ${numParticipants} × 8000 Ft = <strong>${basePrice} Ft</strong></div>
+    ${cashSelected ? `<div>Cash reservation fee: <strong>+1000 Ft</strong></div>` : ''}
+    <div style="margin-top: 5px;">Total: <strong>${total} Ft</strong></div>
+  `;
+
+  document.getElementById('priceSummary').innerHTML = priceHTML;
+}
+
 </script>
 
  
