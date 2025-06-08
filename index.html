@@ -225,7 +225,6 @@
         `;
 
   if (parseInt(row.spotsLeft) > 0) {
-  tr.style.cursor = 'pointer';
   tr.addEventListener('click', () => {
   // Vorherige erweiterte Zeile oder Formular ausblenden
   if (expandedRow && expandedRow.parentNode) {
@@ -258,7 +257,7 @@
   }
         });
     } else {
-  tr.style.opacity = 0.5; // optisch abgedunkelt
+  tr.style.opacity = 0.9; // optisch abgedunkelt
   tr.title = "This event is fully booked";
 }
 
