@@ -137,6 +137,10 @@
   <h3>Reserve Your Spot</h3>
   <h3 id="selected-date"></h3>
   <form action="https://formsubmit.co/captain@piratepenguinbudapest.com" method="POST">
+    <input type="hidden" name="referrer" id="refInput">
+    <script>
+    document.getElementById("refInput").value = sessionStorage.getItem("ref") || '';
+    </script>
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="tour_date" id="form-date">
     <label for="name">Name:</label><br>
@@ -171,6 +175,13 @@
   </section>
 
 <script>
+
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref");
+  if (ref) {
+    sessionStorage.setItem("ref", ref);
+  }
+  
   function formatDate(dateString) {
     const date = new Date(dateString);
     const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
