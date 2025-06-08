@@ -224,7 +224,7 @@
           <td ${spotsLeftStyle}>${row.spotsLeft}</td>
         `;
 
-  if (spotsLeft > 0) {
+  
   tr.style.cursor = 'pointer';
   tr.addEventListener('click', () => {
   // Vorherige erweiterte Zeile oder Formular ausblenden
@@ -239,6 +239,7 @@
     }
   }
 
+  if (spotsLeft > 0) {
   // Formular anzeigen und mit Datum füllen
   const bookingForm = document.getElementById('booking-form');
   if (bookingForm) {
