@@ -128,19 +128,61 @@
         <tbody>
         </tbody>
       </table>
-      <p>Wähle ein Datum oben, um deinen Platz zu reservieren!</p>
     </div>
+    <div id="booking-form" style="display: none; margin-top: 20px; background: #fff; color: black; padding: 20px; border-radius: 8px; max-width: 500px; margin-left: auto; margin-right: auto;">
+  <h3>Reserve Your Spot</h3>
+  <h3 id="selected-date"></h3>
+  <form action="https://formsubmit.co/captain@piratepenguinbudapest.com" method="POST">
+    <input type="hidden" name="referrer" id="refInput">
+    <script>
+    document.getElementById("refInput").value = sessionStorage.getItem("ref") || '';
+    </script>
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="tour_date" id="form-date">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="participants">Anzahl der Teilnehmer:</label><br>
+    <input type="number" id="participants" name="participants" min="1" max="5" value="1" required><br><br>
+
+    <label>
+    <input type="checkbox" id="cashOption" name="cashOption">
+    Ich möchte lieber vor Ort in bar zahlen (+1000Ft/3€ Reservierungsgebühr)
+    </label>
+
+    <div id="priceSummary" class="price-summary" style="margin-top: 15px; font-weight: bold;">
+    <!-- Dynamischer Preis wird hier eingefügt -->
+    </div>
+
+    <button type="submit" class="cta-button">Jetzt Reservieren</button>
+
+    <input type="hidden" name="_next" id="redirect-url">
+
+  </form>
+</div>
+
   </section>
 
 <script>
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref");
+  if (ref) {
+    sessionStorage.setItem("ref", ref);
+  }
+  
   function formatDate(dateString) {
     const date = new Date(dateString);
     const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
     return date.toLocaleDateString('en-GB', options).replace(/\//g, '.');
   }
 
+  let expandedRow = null;
+
   async function fetchBookings() {
-    const apiUrl = 'https://script.google.com/macros/s/AKfycbwRqxDE-WZfHqEPa80-taNvl4Hmix7BKN777hpZ8X2qbDUgXKNc8JrDAofNHZQBpGoz/exec';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycby1BI5Bf1kFrGzWV86K8-5uCQaIvfAChptNfsL0jQMPnL143TZqnFFEiO7yWNei7oU7/exec';
 
     try {
       const response = await fetch(apiUrl);
@@ -156,33 +198,166 @@
             <th class="header-gold">Startzeit</th>
             <th class="header-gold">Freie Plätze</th>
           </tr>
-        </thead>`;
+  </thead>
+        <tbody></tbody>`;
       calendar.innerHTML = headers;
 
-      // Populate rows
+      const tbody = calendar.querySelector('tbody');
+
       data.forEach((row, index) => {
         const formattedDate = formatDate(row.date);
         const isFull = parseInt(row.spotsLeft) === 0;
-        
-        // Inline styling for the cell
         const spotsLeftStyle = isFull ? 'style="background-color: #B22222; color: white; font-weight: bold;"' : '';
+        const bgColor = index % 2 === 0 ? '#8B4513' : '#A0522D';
 
-        // Append row
-        calendar.innerHTML += `
-          <tr style="background-color: ${index % 2 === 0 ? '#8B4513' : '#A0522D'};">
-            <td>${formattedDate}</td>
-            <td>${row.tourName}</td>
-            <td>${row.participants}</td>
-            <td ${spotsLeftStyle}>${row.spotsLeft}</td>
-          </tr>`;
+        const tr = document.createElement('tr');
+        tr.style.backgroundColor = bgColor;
+        tr.innerHTML = `
+          <td>${formattedDate}</td>
+          <td>${row.tourName}</td>
+          <td>${row.participants}</td>
+          <td ${spotsLeftStyle}>${row.spotsLeft}</td>
+        `;
+
+  if (parseInt(row.spotsLeft) > 0) {
+  tr.addEventListener('click', () => {
+  // Vorherige erweiterte Zeile oder Formular ausblenden
+  if (expandedRow && expandedRow.parentNode) {
+    expandedRow.parentNode.removeChild(expandedRow);
+    if (expandedRow.previousSibling === tr) {
+      expandedRow = null;
+      // Formular ausblenden, wenn dasselbe Datum nochmal geklickt wird
+      const bookingForm = document.getElementById('booking-form');
+      if (bookingForm) bookingForm.style.display = 'none';
+      return;
+    }
+  }
+
+  // Formular anzeigen und mit Datum füllen
+  const bookingForm = document.getElementById('booking-form');
+  if (bookingForm) {
+    bookingForm.style.display = 'block';
+    updatePriceSummary();
+
+    // Datum formatieren und anzeigen
+    const formattedDate = formatDate(row.date);
+    const selectedDateEl = document.getElementById('selected-date');
+    if (selectedDateEl) selectedDateEl.textContent = `You selected: ${formattedDate}`;
+
+    const formDateInput = document.getElementById('form-date');
+    if (formDateInput) formDateInput.value = row.date; // rohes Datum ins Hidden-Feld
+
+    bookingForm.scrollIntoView({ behavior: 'smooth' });
+  }
+        });
+  } else {
+  tr.title = "This event is fully booked";
+  tr.addEventListener('click', () => {
+    // Find the Start Time cell in this row (3rd cell, index 2)
+    const startTimeCell = tr.cells[2];
+    if (startTimeCell) {
+      // Toggle the text between original and custom message
+      if (startTimeCell.dataset.originalText === undefined) {
+        // Save original text in a data attribute
+        startTimeCell.dataset.originalText = startTimeCell.textContent;
+      }
+
+      if (startTimeCell.textContent !== "Fully booked") {
+        startTimeCell.textContent = "Fully booked";
+      } else {
+        // Toggle back to original
+        startTimeCell.textContent = startTimeCell.dataset.originalText;
+      }
+    }
+  });
+}
+
+        tbody.appendChild(tr);
       });
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   }
 
-  // Call the function to fetch data when the page loads
   window.onload = fetchBookings;
+
+function updatePriceSummary() {
+  const numParticipants = parseInt(document.getElementById('participants').value) || 1;
+  const cashSelected = document.getElementById('cashOption').checked;
+  const basePrice = numParticipants * 8000;
+  const cashFee = cashSelected ? 1000 : 0;
+  const total = basePrice + cashFee;
+  const priceHTML = `
+    <div>Base price: 8000 Ft x ${numParticipants} = <strong>${basePrice} Ft</strong></div>
+    ${cashSelected ? `<div>Reservation fee: <strong>+1000 Ft</strong></div>` : ''}
+    <div style="margin-top: 5px;">Total: <strong>${total} Ft</strong></div>
+  `;
+
+  document.getElementById('priceSummary').innerHTML = priceHTML;
+}
+
+  // Preis automatisch aktualisieren, wenn Teilnehmerzahl oder Checkbox geändert wird
+document.addEventListener('DOMContentLoaded', () => {
+  const participantsInput = document.getElementById('participants');
+  const cashCheckbox = document.getElementById('cashOption');
+
+  if (participantsInput) {
+    participantsInput.addEventListener('input', updatePriceSummary);
+  }
+
+  if (cashCheckbox) {
+    cashCheckbox.addEventListener('change', updatePriceSummary);
+  }
+});
+
+   const form = document.getElementById("booking-form");
+
+  document.querySelector("form").addEventListener("submit", function (e) {
+    const form = e.target;
+    const date = document.getElementById("form-date").value;
+    const participants = document.getElementById("participants").value;
+    const webhookUrl = "https://script.google.com/macros/s/AKfycby1BI5Bf1kFrGzWV86K8-5uCQaIvfAChptNfsL0jQMPnL143TZqnFFEiO7yWNei7oU7/exec";
+
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `tour_date=${encodeURIComponent(date)}&participants=${encodeURIComponent(participants)}`
+    }).then(response => {
+      // Optional: Log oder Bestätigung
+      console.log("Webhook request sent");
+    }).catch(error => {
+      console.error("Error updating spotsLeft:", error);
+    });
+  });
+
+  form.addEventListener("submit", function(event) {
+    const cashOptionChecked = document.getElementById("cashOption").checked;
+    const participants = parseInt(document.getElementById("participants").value, 10);
+    // Redirect-URLs je nach Zahlungsmethode
+    const redirectUrl = cashOptionChecked
+      ? "https://piratepenguinbudapest.com/thanks-cash.html"
+      : "https://piratepenguinbudapest.com/thanks-online.html";
+
+    // Setze Redirect-URL dynamisch
+    document.getElementById("redirect-url").value = redirectUrl;
+
+    // Nur wenn NICHT Barzahlung gewählt wurde, soll der Revolut-Link aufgehen
+    if (!cashOptionChecked) {
+      const revolutLinks = {
+        1: "https://checkout.revolut.com/pay/abbc46b6-05a2-499f-8126-69831c81ceb0",
+        2: "https://checkout.revolut.com/pay/c41aa667-ca4a-47b5-a6b6-478dbd4f24ae",
+        3: "https://checkout.revolut.com/pay/1cb6b13e-0998-40ac-b2ac-eced4b187353",
+        4: "https://checkout.revolut.com/pay/090633d9-e500-4b92-a1fa-08eab50c3985",
+        5: "https://checkout.revolut.com/pay/88a688ca-7ec2-4a50-bbab-dea8bbc56a34"
+      };
+
+      const payLink = revolutLinks[participants];
+      if (payLink) {
+        window.open(payLink, "_blank");
+      }
+    }
+  });
+  
 </script>
  
   <section class="section">
@@ -228,7 +403,7 @@
     tour1: {
       title: "Schatz & Schmaus",
       description: "Lüfte das Geheimnis der Sternenjäger im 5. Bezirk und knacke rätselhafte Hinweise rund um die Donau! Das Essen zwischen den Rätseln ist optional – aber sehr empfehlenswert.",
-      price: "8.000 HUF (20€) pro Person",
+      price: "8.000Ft (20€) pro Person",
       duration: "2,5 Stunden",
       language: "Szent Istvan Ter 1 (vor der Basilika)",
       ideal: "Schatzsucher, Essensliebhaber, Einzelpersonen, Kleinere Freundesgruppen"
@@ -236,7 +411,7 @@
     tour2: {
       title: "Zocken & Plündern",
       description: "Rätsle dich durch den 6. Bezirk und finde den Schatz der Brettspielbar! Spieltickets für die Bar sind im Preis inbegriffen.",
-      price: "10.000 HUF (25€) pro Person",
+      price: "10.000Ft (25€) pro Person",
       duration: "3 Stunden",
       language: "Andrassy Utca 22 (vor der Oper)",
       ideal: "Brettspielfans, Videospielfans, Leute die gerne unbekanntere Gebiete erforschen"
