@@ -351,6 +351,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Formular wird wie gewohnt weitergesendet
   });
 
+  document.querySelector("form").addEventListener("submit", function (e) {
+    const form = e.target;
+    const date = document.getElementById("form-date").value;
+    const participants = document.getElementById("participants").value;
+    const webhookUrl = "https://script.google.com/macros/s/AKfycbyG_VswlqTm4kAHUH-ju0s8Q14rmlOWk6F9JkFFd8lClxJr8eRTp4nHtaQBRJarf02V/exec";
+
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `tour_date=${encodeURIComponent(date)}&participants=${encodeURIComponent(participants)}`
+    }).then(response => {
+      // Optional: Log oder Bestätigung
+      console.log("Webhook request sent");
+    }).catch(error => {
+      console.error("Error updating spotsLeft:", error);
+    });
+  });
+
 </script>
 
  
