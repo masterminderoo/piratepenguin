@@ -187,7 +187,7 @@
   let expandedRow = null;
 
   async function fetchBookings() {
-    const apiUrl = 'https://script.google.com/macros/s/AKfycbwRqxDE-WZfHqEPa80-taNvl4Hmix7BKN777hpZ8X2qbDUgXKNc8JrDAofNHZQBpGoz/exec';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycby1BI5Bf1kFrGzWV86K8-5uCQaIvfAChptNfsL0jQMPnL143TZqnFFEiO7yWNei7oU7/exec';
 
     try {
       const response = await fetch(apiUrl);
@@ -320,6 +320,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
    const form = document.getElementById("booking-form");
 
+  document.querySelector("form").addEventListener("submit", function (e) {
+    const form = e.target;
+    const date = document.getElementById("form-date").value;
+    const participants = document.getElementById("participants").value;
+    const webhookUrl = "https://script.google.com/macros/s/AKfycby1BI5Bf1kFrGzWV86K8-5uCQaIvfAChptNfsL0jQMPnL143TZqnFFEiO7yWNei7oU7/exec";
+
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `tour_date=${encodeURIComponent(date)}&participants=${encodeURIComponent(participants)}`
+    }).then(response => {
+      // Optional: Log oder Bestätigung
+      console.log("Webhook request sent");
+    }).catch(error => {
+      console.error("Error updating spotsLeft:", error);
+    });
+  });
+
+  
   form.addEventListener("submit", function(event) {
     const cashOptionChecked = document.getElementById("cashOption").checked;
     const participants = parseInt(document.getElementById("participants").value, 10);
@@ -350,25 +369,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Formular wird wie gewohnt weitergesendet
   });
-
-  document.querySelector("form").addEventListener("submit", function (e) {
-    const form = e.target;
-    const date = document.getElementById("form-date").value;
-    const participants = document.getElementById("participants").value;
-    const webhookUrl = "https://script.google.com/macros/s/AKfycbyG_VswlqTm4kAHUH-ju0s8Q14rmlOWk6F9JkFFd8lClxJr8eRTp4nHtaQBRJarf02V/exec";
-
-    fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `tour_date=${encodeURIComponent(date)}&participants=${encodeURIComponent(participants)}`
-    }).then(response => {
-      // Optional: Log oder Bestätigung
-      console.log("Webhook request sent");
-    }).catch(error => {
-      console.error("Error updating spotsLeft:", error);
-    });
-  });
-
 </script>
 
  
