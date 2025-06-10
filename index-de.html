@@ -251,7 +251,7 @@
   }
         });
   } else {
-  tr.title = "This event is fully booked";
+  tr.title = "Dieses Event ist leider ausgebucht!";
   tr.addEventListener('click', () => {
     // Find the Start Time cell in this row (3rd cell, index 2)
     const startTimeCell = tr.cells[2];
@@ -262,8 +262,8 @@
         startTimeCell.dataset.originalText = startTimeCell.textContent;
       }
 
-      if (startTimeCell.textContent !== "Fully booked") {
-        startTimeCell.textContent = "Fully booked";
+      if (startTimeCell.textContent !== "Ausgebucht") {
+        startTimeCell.textContent = "Ausgebucht";
       } else {
         // Toggle back to original
         startTimeCell.textContent = startTimeCell.dataset.originalText;
@@ -288,7 +288,7 @@ function updatePriceSummary() {
   const cashFee = cashSelected ? 1000 : 0;
   const total = basePrice + cashFee;
   const priceHTML = `
-    <div>Base price: 8000 Ft x ${numParticipants} = <strong>${basePrice} Ft</strong></div>
+    <div>Base price: 8000Ft x ${numParticipants} = <strong>${basePrice} Ft</strong></div>
     ${cashSelected ? `<div>Reservation fee: <strong>+1000 Ft</strong></div>` : ''}
     <div style="margin-top: 5px;">Total: <strong>${total} Ft</strong></div>
   `;
