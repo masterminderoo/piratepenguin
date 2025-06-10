@@ -130,7 +130,7 @@
       </table>
     </div>
     <div id="booking-form" style="display: none; margin-top: 20px; background: #fff; color: black; padding: 20px; border-radius: 8px; max-width: 500px; margin-left: auto; margin-right: auto;">
-  <h3>Reserve Your Spot</h3>
+  <h3>Reserviere deinen Platz</h3>
   <h3 id="selected-date"></h3>
   <form action="https://formsubmit.co/captain@piratepenguinbudapest.com" method="POST">
     <input type="hidden" name="referrer" id="refInput">
@@ -242,7 +242,7 @@
     // Datum formatieren und anzeigen
     const formattedDate = formatDate(row.date);
     const selectedDateEl = document.getElementById('selected-date');
-    if (selectedDateEl) selectedDateEl.textContent = `You selected: ${formattedDate}`;
+    if (selectedDateEl) selectedDateEl.textContent = `Deine Auswahl: ${formattedDate}`;
 
     const formDateInput = document.getElementById('form-date');
     if (formDateInput) formDateInput.value = row.date; // rohes Datum ins Hidden-Feld
