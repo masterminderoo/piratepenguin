@@ -288,9 +288,9 @@ function updatePriceSummary() {
   const cashFee = cashSelected ? 1000 : 0;
   const total = basePrice + cashFee;
   const priceHTML = `
-    <div>Base price: 8000Ft x ${numParticipants} = <strong>${basePrice} Ft</strong></div>
-    ${cashSelected ? `<div>Reservation fee: <strong>+1000 Ft</strong></div>` : ''}
-    <div style="margin-top: 5px;">Total: <strong>${total} Ft</strong></div>
+    <div>Preis: 8000Ft x ${numParticipants} = <strong>${basePrice} Ft</strong></div>
+    ${cashSelected ? `<div>Reservierungsgebühr: <strong>+1000 Ft</strong></div>` : ''}
+    <div style="margin-top: 5px;">Gesamt: <strong>${total} Ft</strong></div>
   `;
 
   document.getElementById('priceSummary').innerHTML = priceHTML;
